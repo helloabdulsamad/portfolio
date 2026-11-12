@@ -57,6 +57,25 @@ window.PROJECTS = [
   "shot": "img/work/upsert-scout.webp"
  },
  {
+  "slug": "job-digest",
+  "name": "Daily job digest",
+  "oneLine": "A morning email of new jobs that fit, with the right CV attached.",
+  "hook": "Wake up to a short list of jobs worth applying for, with the right CV ready to send.",
+  "role": "Owner and sole engineer",
+  "period": "Nov 2026 to present",
+  "status": "Live",
+  "link": null,
+  "problem": "I was checking job boards every day, and most of what I saw was noise. Junior roles. Roles that need a US passport or a security clearance. Roles I had already applied for. Finding one good role could take a whole morning.",
+  "role_text": "The digest is my own project. I wrote the rules, built the job and run it every day. It reads from Upsert Scout, the job crawler I also built.",
+  "approach": "Every morning at 06:17 Lagos time, a small Python job on GitHub Actions reads new postings from Upsert Scout and public job listings. Every posting goes through plain rules in one file. Each match gets one of my six existing CVs, and one email lists the role, why it matched and the CV, attached. It never applies for me.",
+  "decisions": "Plain rules with no AI deciding, so I can read and test every one. Two backup runs with a once a day guard cover the days GitHub skips the schedule, and I still get one email. No more than 2 roles from one company, so a single employer cannot fill the list.",
+  "outcome": "Running every morning. In its first week it read 3,618 job postings and shortlisted 67. I sent 12 applications from it, including M-KOPA, Supabase and OpenAI.",
+  "tag": "3,618 postings read. 67 worth a look.",
+  "ink": "#ff8a3d",
+  "paper": "#0c0c0c",
+  "shot": "img/work/job-digest.webp"
+ },
+ {
   "slug": "tredar-pos",
   "name": "Tredar",
   "oneLine": "An offline-first point of sale for Nigerian retailers.",
