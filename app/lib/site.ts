@@ -2,7 +2,7 @@
 export const site = {
   name: "Abdulsamad Osunlana",
   shortName: "helloabdulsamad",
-  url: "https://helloabdulsamad.github.io", // no trailing slash
+  url: "https://helloabdulsamad.com", // no trailing slash
   title: "Abdulsamad Osunlana · Senior Software Engineer",
   description:
     "Senior Software Engineer in Lagos. I build backends where money moves once, stores stay up and sales survive a bad network: payments, multi-tenant platforms and public APIs in .NET, TypeScript and PostgreSQL.",

@@ -1,10 +1,10 @@
 # helloabdulsamad.github.io
 
-Abdulsamad Osunlana's portfolio. Live at [helloabdulsamad.github.io](https://helloabdulsamad.github.io).
+Abdulsamad Osunlana's portfolio. Live at [helloabdulsamad.com](https://helloabdulsamad.com).
 
 ## How the site is put together
 
-The site has two parts. The deploy builds both and joins them into one folder.
+The site has two parts. The build joins them into one folder of plain files.
 
 | Page | Comes from | Built with |
 |---|---|---|
@@ -13,7 +13,7 @@ The site has two parts. The deploy builds both and joins them into one folder.
 | `/about` | `app/about/` | Next.js (static export) |
 | `/sitemap.xml`, `/robots.txt`, social preview image | `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx` | Next.js |
 
-`.github/workflows/deploy-pages.yml` runs `npm run build` with `GITHUB_PAGES=true`, which writes the Next.js pages to `out/`. It then copies everything in `site/` over `out/` and publishes `out/` to GitHub Pages. Every push to `main` publishes the live site.
+The site runs on a VPS with Coolify. Coolify builds the `Dockerfile`: it runs `npm run build` with `STATIC_EXPORT=true`, which writes the Next.js pages to `out/`, copies everything in `site/` over `out/`, and serves `out/` with nginx (`nginx.conf`). Coolify also gets the free Let's Encrypt certificate for helloabdulsamad.com. A push to `main` starts a new deploy.
 
 ## Folders
 
@@ -54,5 +54,5 @@ npm run dev
 `npm run dev` serves the About page at http://localhost:3000/about. To see the home page as it will look live, build it the way the deploy does and serve `out/`:
 
 ```bash
-GITHUB_PAGES=true npm run build && cp -R site/. out/ && npx serve out
+STATIC_EXPORT=true npm run build && cp -R site/. out/ && npx serve out
 ```
