@@ -1,4 +1,4 @@
-# helloabdulsamad.github.io
+# portfolio
 
 Abdulsamad Osunlana's portfolio. Live at [helloabdulsamad.com](https://helloabdulsamad.com).
 
@@ -13,9 +13,7 @@ The site has two parts. The build joins them into one folder of plain files.
 | `/about` | `app/about/` | Next.js (static export) |
 | `/sitemap.xml`, `/robots.txt`, social preview image | `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx` | Next.js |
 
-The site runs on a VPS with Coolify. Coolify builds the `Dockerfile`: it runs `npm run build` with `STATIC_EXPORT=true`, which writes the Next.js pages to `out/`, copies everything in `site/` over `out/`, and serves `out/` with nginx (`nginx.conf`). Coolify also gets the free Let's Encrypt certificate for helloabdulsamad.com. Press Redeploy in Coolify after a push to `main`.
-
-The old address, helloabdulsamad.github.io, now only sends visitors to helloabdulsamad.com. GitHub does not allow Pages to be switched off for this repo, so `.github/workflows/github-pages-redirect.yml` publishes the small redirect page in `github-pages/`.
+The site runs on a VPS with Coolify. Coolify builds the `Dockerfile`: it runs `npm run build` with `STATIC_EXPORT=true`, which writes the Next.js pages to `out/`, copies everything in `site/` over `out/`, and serves `out/` with nginx (`nginx.conf`). Coolify also gets the free Let's Encrypt certificate for helloabdulsamad.com. A push to `main` deploys the site by itself through the `helloabdulsamad-coolify` GitHub App.
 
 ## Folders
 
@@ -33,7 +31,6 @@ app/                  Next.js: the About page and site metadata
   components/         Menu, header, footer and theme switch used by About
   lib/site.ts         Name, title, description and site URL
 public/               Images used by the About page
-github-pages/         Redirect page for the old github.io address
 ```
 
 ## Adding a project to the home page
