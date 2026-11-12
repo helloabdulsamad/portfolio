@@ -1,0 +1,34 @@
+# The live site is on Coolify at helloabdulsamad.com. GitHub does not allow
+# Pages to be switched off for a <user>.github.io repo, so this publishes a
+# small page that sends old helloabdulsamad.github.io links to the new domain.
+name: Redirect GitHub Pages to helloabdulsamad.com
+
+on:
+  push:
+    branches: [main]
+    paths: ["github-pages/**", ".github/workflows/github-pages-redirect.yml"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./github-pages
+      - id: deployment
+        uses: actions/deploy-pages@v4
