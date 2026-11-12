@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# helloabdulsamad.github.io
 
-## Getting Started
+Abdulsamad Osunlana's portfolio. Live at [helloabdulsamad.github.io](https://helloabdulsamad.github.io).
 
-First, run the development server:
+## How the site is put together
+
+The site has two parts. The deploy builds both and joins them into one folder.
+
+| Page | Comes from | Built with |
+|---|---|---|
+| `/` home page with the work cards | `site/index.html`, `site/data.js`, `site/main.js`, `site/styles.css` | Plain HTML, CSS and JavaScript. No build step |
+| `/milo/` Milo product page | `site/milo/` | Plain HTML |
+| `/about` | `app/about/` | Next.js (static export) |
+| `/sitemap.xml`, `/robots.txt`, social preview image | `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx` | Next.js |
+
+`.github/workflows/deploy-pages.yml` runs `npm run build` with `GITHUB_PAGES=true`, which writes the Next.js pages to `out/`. It then copies everything in `site/` over `out/` and publishes `out/` to GitHub Pages. Every push to `main` publishes the live site.
+
+## Folders
+
+```
+site/                 Home page and Milo page, served as they are
+  index.html          Home page markup
+  data.js             The work cards and their case studies
+  main.js             Cards, case study sheet, menu and scroll motion
+  styles.css          Home page styles
+  img/work/           One 1600 x 1000 image per work card
+  milo/               Milo product page
+  fonts/, vendor/     Geist fonts, GSAP, ScrollTrigger and Lenis
+app/                  Next.js: the About page and site metadata
+  about/              About page
+  components/         Menu, header, footer and theme switch used by About
+  lib/site.ts         Name, title, description and site URL
+public/               Images used by the About page
+```
+
+## Adding a project to the home page
+
+1. Add an entry to `site/data.js`. The cards appear in the order of the list.
+2. Add a 1600 x 1000 WebP image to `site/img/work/` and point `shot` at it.
+3. Change the `?v=` number on the `styles.css`, `data.js` and `main.js` links in `site/index.html`, so visitors get the new files.
+
+Each entry holds the card text (`name`, `status`, `period`, `tag`, `ink`, `paper`) and the five parts of the case study (`problem`, `role_text`, `approach`, `decisions`, `outcome`).
+
+## Working on it locally
+
+```bash
+npm install
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm run dev` serves the About page at http://localhost:3000/about. To see the home page as it will look live, build it the way the deploy does and serve `out/`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+GITHUB_PAGES=true npm run build && cp -R site/. out/ && npx serve out
+```

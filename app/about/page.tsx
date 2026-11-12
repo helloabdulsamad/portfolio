@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- the home page is a plain HTML page, so it needs a full load */
+ 
 import Image from "next/image";
 import Header from "../components/header/Header";
 import Footer from "../components/Footer";

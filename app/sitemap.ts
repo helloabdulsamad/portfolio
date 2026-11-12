@@ -7,11 +7,12 @@ export const dynamic = "force-static";
 
 const BASE_URL = site.url;
 
-// The home page is sleek-site/index.html (copied over the export by the deploy
+// The home page is site/index.html (copied over the export by the deploy
 // workflow). Its case studies open in a sheet on that page, not as separate URLs.
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: BASE_URL, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1.0 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${BASE_URL}/milo/`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
   ];
 }
