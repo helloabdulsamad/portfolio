@@ -9,7 +9,7 @@ import Reveal from "./Reveal";
 const experience = [
   { company: "Aspen Publishing", role: "Software Engineer II", period: "May 2025 to present", body: "Foundational services for internal teams and third party integrations on Azure and .NET. I review code across teams for standards, security and performance, lead design discussions, and enforce unit, acceptance and integration test coverage." },
   { company: "Aspen Publishing", role: "Software Engineer I", period: "Jun 2024 to May 2025", body: "Azure and ASP.NET Web API services, built to The Standard." },
-  { company: "Upsert Labs", role: "Founder", period: "Jun 2026 to present", body: "My own company. EventHome, Upsert, Upsert Scout and client builds such as Inkz ’N’ Paint." },
+  { company: "Upsert Labs", role: "Founder", period: "Jun 2026 to present", body: "My own company. EventHome, Upsert, Scout N Digest and client builds such as Inkz ’N’ Paint." },
   { company: "Open source, The Standard", role: "Contributor", period: "Mar 2024 to present", body: "EventHighway, the RESTFulSense client rewrite, ADotNet and The Standard book, reviewed in public by the maintainers." },
   { company: "AXA Mansard", role: "Software Engineer", period: "Jan 2023 to Jul 2024", body: ".NET services and acceptance testing." },
   { company: "AIpidata", role: "Flutter Developer", period: "Nov 2022 to Apr 2023", body: "Designed and helped build PI-Pet, a pet tracking app for health vitals and location." },

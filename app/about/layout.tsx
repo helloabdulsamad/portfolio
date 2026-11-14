@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const description =
-  "Software engineer and founder building event-commerce and storefront platforms. Currently building Upsert Labs Limited (EventHome, Upsert, Upsert Scout).";
+  "Software engineer and founder building event-commerce and storefront platforms. Currently building Upsert Labs Limited (EventHome, Upsert, Scout N Digest).";
 
 export const metadata: Metadata = {
   title: "About",
