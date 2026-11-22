@@ -154,8 +154,8 @@ window.PROJECTS = [
   "decisions": "The quote, the booking, the weigh in and the invoice all use the same price calculation, so the price a customer sees is the price they pay. WhatsApp comes first because that is where customers already are, and SMS takes over when a message fails. Money changes such as rates, refunds and write offs need a second person, and nobody approves their own request. It runs on one self hosted server to keep costs low for the client.",
   "outcome": "Jojo Express has been live at jojosolutions.com since November 2026. Every price shown on the homepage is now saved as a lead for the team to follow up. In its first week, a full test of the customer, agent and staff journeys caught money problems, such as agent debt counted twice, and I fixed them. An automated test opens every screen at phone and desktop sizes.",
   "tag": "Send your box abroad. Know the price first.",
-  "ink": "#ffcc00",
-  "paper": "#30073a",
+  "ink": "#830691",
+  "paper": "#ffffff",
   "shot": "img/work/jojo-express.webp",
   "tech": [
    "Next.js",
