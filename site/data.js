@@ -52,8 +52,8 @@ window.PROJECTS = [
  "decisions": "Official feeds come first because they give cleaner data and are less likely to be blocked. Matching uses plain rules instead of AI, so every decision can be read and tested. The digest email allows no more than two roles from one company, and a check makes sure only one email goes out a day. API keys are approved one by one and limited per key.",
  "outcome": "Upsert Scout is live with the web app and the public developer API. It covers 242 companies in 19 countries. The morning digest runs for me every day. In its first week, it read 3,618 job posts and shortlisted 67, and I sent 12 applications from it, including to M-KOPA, Supabase and OpenAI. Next, the digest opens to every Upsert Scout user, inside the same app.",
  "tag": "Every new job at the companies you want. The ones that fit, in your inbox every morning.",
- "ink": "#1d2b4f",
- "paper": "#eef0f8",
+ "ink": "#d19a6a",
+ "paper": "#0f1420",
  "shot": "img/work/job-digest.webp"
 },
  {
