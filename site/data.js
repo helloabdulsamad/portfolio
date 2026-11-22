@@ -113,33 +113,6 @@ window.PROJECTS = [
   ]
  },
  {
-  "slug": "smarttasker-indonesia",
-  "name": "SmartTasker Indonesia",
-  "oneLine": "Launching an Australian task marketplace in Indonesia, in two languages, on both app stores.",
-  "hook": "Smarttasker connects people who need tasks done with people who can do them. I helped take the app from Australia to Indonesia, starting with Bali.",
-  "role": "Major contributor (client: Smarttasker Pty Ltd)",
-  "period": "Jun to Nov 2026",
-  "status": "Live",
-  "link": "https://www.smarttasker.id",
-  "problem": "A new country brings more than a new language. The launch needed Bahasa Indonesia across the app, a sign in that works on popular Android phones, payouts that pay the right amount, steady releases and a way to measure paid ads.",
-  "role_text": "I owned the English and Indonesian language system, the app releases and the crash fixes from real users. I also owned the marketing tracking plan and the bilingual website.",
-  "approach": "Every screen, email and notification works in both English and Indonesian. Key steps in the customer journey are reported to AppsFlyer, a marketing analytics tool, so the growth team can see which ads bring in customers.",
-  "decisions": "Translations are checked automatically, so a missing line stops the release before it reaches users. Payouts were tested from start to finish before launch, instead of being assumed to work.",
-  "outcome": "Between September and November 2026, we shipped five releases, live on both app stores. Sign in was fixed on Samsung S22 and S24 phones. A check before launch also caught a Rp 860,500 payout that would have been capped at Rp 99,999.99. Smarttasker is now live in Indonesia.",
-  "tag": "An Australian task marketplace, launched in Indonesia.",
-  "ink": "#d7f36b",
-  "paper": "#0c0c0c",
-  "shot": "img/work/smarttasker-indonesia.webp",
-  "tech": [
-   "Flutter",
-   "Dart",
-   "Firebase",
-   "AppsFlyer",
-   "Laravel",
-   "MySQL"
-  ]
- },
- {
   "slug": "jojo-express",
   "name": "Jojo Express",
   "oneLine": "Air and sea cargo from Nigeria to homes abroad, priced, booked and tracked online (client build).",
@@ -224,6 +197,33 @@ window.PROJECTS = [
    "Node.js",
    "Paystack",
    "Docker"
+  ]
+ },
+ {
+  "slug": "smarttasker-indonesia",
+  "name": "SmartTasker Indonesia",
+  "oneLine": "Launching an Australian task marketplace in Indonesia, in two languages, on both app stores.",
+  "hook": "Smarttasker connects people who need tasks done with people who can do them. I helped take the app from Australia to Indonesia, starting with Bali.",
+  "role": "Major contributor (client: Smarttasker Pty Ltd)",
+  "period": "Jun to Nov 2026",
+  "status": "Live",
+  "link": "https://www.smarttasker.id",
+  "problem": "A new country brings more than a new language. The launch needed Bahasa Indonesia across the app, a sign in that works on popular Android phones, payouts that pay the right amount, steady releases and a way to measure paid ads.",
+  "role_text": "I owned the English and Indonesian language system, the app releases and the crash fixes from real users. I also owned the marketing tracking plan and the bilingual website.",
+  "approach": "Every screen, email and notification works in both English and Indonesian. Key steps in the customer journey are reported to AppsFlyer, a marketing analytics tool, so the growth team can see which ads bring in customers.",
+  "decisions": "Translations are checked automatically, so a missing line stops the release before it reaches users. Payouts were tested from start to finish before launch, instead of being assumed to work.",
+  "outcome": "Between September and November 2026, we shipped five releases, live on both app stores. Sign in was fixed on Samsung S22 and S24 phones. A check before launch also caught a Rp 860,500 payout that would have been capped at Rp 99,999.99. Smarttasker is now live in Indonesia.",
+  "tag": "An Australian task marketplace, launched in Indonesia.",
+  "ink": "#d7f36b",
+  "paper": "#0c0c0c",
+  "shot": "img/work/smarttasker-indonesia.webp",
+  "tech": [
+   "Flutter",
+   "Dart",
+   "Firebase",
+   "AppsFlyer",
+   "Laravel",
+   "MySQL"
   ]
  },
  {
