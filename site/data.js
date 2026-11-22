@@ -59,8 +59,8 @@ window.PROJECTS = [
  {
   "slug": "tredar-pos",
   "name": "Tredar",
-  "oneLine": "An offline-first point of sale for Nigerian retailers.",
-  "hook": "Tredar is a point of sale system for Nigerian shops. When the power or internet goes off, it keeps recording sales and updates everything once the connection returns.",
+  "oneLine": "A POS and stock app for Nigerian shops with more than one branch, that keeps selling offline.",
+  "hook": "Tredar is a POS and stock app for supermarkets, pharmacies, boutiques and shops with more than one branch. Each sale is saved on the device first, then it syncs on its own when the network comes back.",
   "role": "Sole builder and operator",
   "period": "Feb 2026 to present",
   "status": "Live",
@@ -70,10 +70,10 @@ window.PROJECTS = [
   "approach": "The till runs in the web browser. When the connection drops, it saves each sale on the device. When the connection returns, it syncs by itself, records each sale only once and sends stock changes to the shop's WooCommerce store.",
   "decisions": "I built it offline first, so a power cut does not cost a sale. Updates to the online store wait in a queue and retry until they go through, even after a long outage. I host it myself, which keeps costs low and gives me full control.",
   "outcome": "Tredar has been in live use since February 2026. Once, an update crashed the server for every merchant. I rolled it back, repaired the bad data and made the update safe to run again. Through power cuts and network drops, the till keeps selling.",
-  "tag": "A till that keeps selling when the internet goes out.",
-  "ink": "#123d2f",
-  "paper": "#eef5f0",
-  "shot": "img/work/tredar-pos.webp"
+  "tag": "Keep selling when the network goes.",
+  "ink": "#0f172a",
+  "paper": "#2dd4bf",
+  "shot": "img/work/tredar.webp"
  },
  {
   "slug": "jojo-express",
@@ -90,8 +90,8 @@ window.PROJECTS = [
   "decisions": "The quote, the booking, the weigh in and the invoice all use the same price calculation, so the price a customer sees is the price they pay. WhatsApp comes first because that is where customers already are, and SMS takes over when a message fails. Money changes such as rates, refunds and write offs need a second person, and nobody approves their own request. It runs on one self hosted server to keep costs low for the client.",
   "outcome": "Jojo Express has been live at jojosolutions.com since November 2026. Every price shown on the homepage is now saved as a lead for the team to follow up. In its first week, a full test of the customer, agent and staff journeys caught money problems, such as agent debt counted twice, and I fixed them. An automated test opens every screen at phone and desktop sizes.",
   "tag": "Send your box abroad. Know the price first.",
-  "ink": "#830691",
-  "paper": "#ffffff",
+  "ink": "#f4e9f7",
+  "paper": "#30073a",
   "shot": "img/work/jojo-express.webp"
  },
  {
