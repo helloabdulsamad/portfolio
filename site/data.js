@@ -16,7 +16,16 @@ window.PROJECTS = [
   "tag": "Keep selling when the network goes.",
   "ink": "#0f172a",
   "paper": "#2dd4bf",
-  "shot": "img/work/tredar.webp"
+  "shot": "img/work/tredar.webp",
+  "tech": [
+   "React",
+   "TypeScript",
+   "Offline web app (PWA)",
+   "Node.js",
+   "Express",
+   "PostgreSQL",
+   "Coolify"
+  ]
  },
  {
   "slug": "upsert",
@@ -35,7 +44,17 @@ window.PROJECTS = [
   "tag": "Your own online store. No cut of your sales.",
   "ink": "#1f3a2e",
   "paper": "#eef3ef",
-  "shot": "img/work/upsert.webp"
+  "shot": "img/work/upsert.webp",
+  "tech": [
+   "C#",
+   ".NET 10",
+   "PostgreSQL",
+   "Next.js",
+   "WooCommerce",
+   "Paystack",
+   "Docker",
+   "Coolify"
+  ]
  },
  {
   "slug": "eventhome",
@@ -54,7 +73,16 @@ window.PROJECTS = [
   "tag": "Sell tickets online. Never sell the same seat twice.",
   "ink": "#f5c400",
   "paper": "#0c0c0c",
-  "shot": "img/work/eventhome.webp"
+  "shot": "img/work/eventhome.webp",
+  "tech": [
+   "TypeScript",
+   "Next.js",
+   "PostgreSQL",
+   "Drizzle",
+   "Redis",
+   "Paystack",
+   "Coolify"
+  ]
  },
  {
   "slug": "upsert-scout",
@@ -73,7 +101,16 @@ window.PROJECTS = [
   "tag": "Every new job at the companies you want. The ones that fit, in your inbox every morning.",
   "ink": "#d19a6a",
   "paper": "#0f1420",
-  "shot": "img/work/job-digest.webp"
+  "shot": "img/work/job-digest.webp",
+  "tech": [
+   "C#",
+   ".NET 10",
+   "PostgreSQL",
+   "Hangfire",
+   "Next.js",
+   "React",
+   "Coolify"
+  ]
  },
  {
   "slug": "smarttasker-indonesia",
@@ -92,7 +129,15 @@ window.PROJECTS = [
   "tag": "An Australian task marketplace, launched in Indonesia.",
   "ink": "#d7f36b",
   "paper": "#0c0c0c",
-  "shot": "img/work/smarttasker-indonesia.webp"
+  "shot": "img/work/smarttasker-indonesia.webp",
+  "tech": [
+   "Flutter",
+   "Dart",
+   "Firebase",
+   "AppsFlyer",
+   "Laravel",
+   "MySQL"
+  ]
  },
  {
   "slug": "jojo-express",
@@ -111,7 +156,18 @@ window.PROJECTS = [
   "tag": "Send your box abroad. Know the price first.",
   "ink": "#ffcc00",
   "paper": "#30073a",
-  "shot": "img/work/jojo-express.webp"
+  "shot": "img/work/jojo-express.webp",
+  "tech": [
+   "Next.js",
+   "React",
+   "TypeScript",
+   "PostgreSQL",
+   "Drizzle",
+   "WhatsApp API",
+   "Brevo",
+   "Termii",
+   "Coolify"
+  ]
  },
  {
   "slug": "milo",
@@ -130,7 +186,16 @@ window.PROJECTS = [
   "tag": "A WhatsApp assistant that takes orders and payments safely.",
   "ink": "#10213d",
   "paper": "#f1ede6",
-  "shot": "img/work/milo.webp"
+  "shot": "img/work/milo.webp",
+  "tech": [
+   "C#",
+   ".NET 9",
+   "PostgreSQL",
+   "WhatsApp Cloud API",
+   "DeepSeek",
+   "WooCommerce",
+   "Paystack"
+  ]
  },
  {
   "slug": "inkznpaint",
@@ -149,7 +214,17 @@ window.PROJECTS = [
   "tag": "Order printing online. Get it printed in your state.",
   "ink": "#ff2f8a",
   "paper": "#ffffff",
-  "shot": "img/work/inkznpaint.webp"
+  "shot": "img/work/inkznpaint.webp",
+  "tech": [
+   "PHP",
+   "WordPress",
+   "WooCommerce",
+   "MariaDB",
+   "Fabric.js",
+   "Node.js",
+   "Paystack",
+   "Docker"
+  ]
  },
  {
   "slug": "open-source-the-standard",
@@ -168,6 +243,14 @@ window.PROJECTS = [
   "tag": ".NET code reviewed and shipped by open source maintainers.",
   "ink": "#f1ede6",
   "paper": "#0c0c0c",
-  "shot": "img/work/open-source-the-standard.webp"
+  "shot": "img/work/open-source-the-standard.webp",
+  "tech": [
+   "C#",
+   ".NET",
+   "EF Core",
+   "xUnit",
+   "Moq",
+   "NuGet"
+  ]
  }
 ];

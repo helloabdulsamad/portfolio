@@ -18,6 +18,7 @@
         <span class="card-top"><span>${p.status} · ${p.period}</span></span>
         <span>
           <h3 class="card-name">${p.name}</h3>
+          ${p.tech ? `<p class="card-tech">${p.tech.join(" · ")}</p>` : ""}
         </span>
         <span class="card-bottom">
           <p class="card-hook">${p.tag}</p>
@@ -187,6 +188,9 @@
       $("[data-sheet-kicker]").textContent = `${p.role} · ${p.status}`;
       $("[data-sheet-title]").textContent = p.name;
       $("[data-sheet-hook]").textContent = p.hook;
+      const techEl = $("[data-sheet-tech]");
+      techEl.hidden = !p.tech;
+      if (p.tech) techEl.innerHTML = `<span>Built with</span>${p.tech.join(" · ")}`;
       const shotEl = $("[data-sheet-shot]");
       if (p.shot) { shotEl.hidden = false; shotEl.src = p.shot; } else shotEl.hidden = true;
       const link = $("[data-sheet-link]");
