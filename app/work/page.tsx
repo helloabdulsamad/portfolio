@@ -4,6 +4,7 @@ import PageShell, { Crumbs, tone } from "../components/PageShell";
 import { getProjects, plainName } from "@/lib/projects";
 import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
+import WorkStack from "./WorkStack";
 
 const title = "Work and case studies";
 const description =
@@ -56,27 +57,32 @@ export default function Work() {
           works, the key decisions and the outcome.
         </p>
       </header>
-      <ol className="wk-grid">
+      <WorkStack>
         {projects.map((p) => (
           <li key={p.slug} className={p.shot ? "wk-card" : "wk-card no-shot"} style={tone(p)}>
             <Link href={`/work/${p.slug}`} className="wk-link">
               <span className="wk-meta">
                 {p.status} · {p.period}
               </span>
-              <h2 className="wk-name">{p.name}</h2>
-              <p className="wk-tag">{p.tag}</p>
-              <p className="wk-one">{p.oneLine}</p>
-              <span className="wk-more">Read the story</span>
-              {p.shot && (
-                <span className="wk-shot" aria-hidden="true">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/${p.shot}`} alt="" width={1600} height={1000} loading="lazy" decoding="async" />
-                </span>
-              )}
+              <span className="wk-mid">
+                <h2 className="wk-name">{p.name}</h2>
+                <span className="wk-tech">{p.oneLine}</span>
+              </span>
+              <span className="wk-bottom">
+                <span className="wk-tag">{p.tag}</span>
+                <span className="wk-more">Read the story</span>
+              </span>
             </Link>
+            {p.shot && (
+              <span className="wk-shot" aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/${p.shot}`} alt="" width={1600} height={1000} loading="lazy" decoding="async" />
+              </span>
+            )}
+            <span className="wk-shade" aria-hidden="true" />
           </li>
         ))}
-      </ol>
+      </WorkStack>
       <p className="wk-note">
         At Aspen Publishing I build core services that other teams and partners build on. That code is private, and I am happy to walk
         through it in an interview.
