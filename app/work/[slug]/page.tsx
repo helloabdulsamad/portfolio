@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import PageShell, { Crumbs } from "../../components/PageShell";
+import PageShell, { Crumbs, tone } from "../../components/PageShell";
 import { getProject, getProjects, PARTS, plainName } from "@/lib/projects";
 import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
@@ -87,71 +87,61 @@ export default async function CaseStudy({ params }: Props) {
   );
 
   return (
-    <PageShell>
+    <PageShell sheet>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(jsonLd) }} />
-      <Crumbs items={[{ name: "Home", href: "/" }, { name: "Work", href: "/work" }, { name }]} />
+      <Link className="sh-back" href="/work" style={tone(p)}>
+        All work
+      </Link>
 
       <article>
-        <header>
-          <p className="section-kicker">Case study · {p.status}</p>
-          <h1 className="font-display text-[34px] font-semibold leading-[1.05] tracking-[-0.01em] sm:text-[44px] pb-5">{p.name}</h1>
-          <p className="lead pb-6">{p.hook}</p>
-          <dl className="facts pb-8">
-            <dt>Role</dt>
-            <dd>{p.role}</dd>
-            <dt>When</dt>
-            <dd>{p.period}</dd>
-            <dt>Status</dt>
-            <dd>{p.status}</dd>
-            {p.tech && (
-              <>
-                <dt>Built with</dt>
-                <dd>{p.tech.join(", ")}</dd>
-              </>
-            )}
-            {p.link && (
-              <>
-                <dt>Live at</dt>
-                <dd>
-                  <a className="link-underline" href={p.link} target="_blank" rel="noopener">
-                    {p.link.replace(/^https?:\/\/(www\.)?/, "")}
-                  </a>
-                </dd>
-              </>
-            )}
-          </dl>
+        <header className="sh-head" style={tone(p)}>
+          <div className="sh-crumbs">
+            <Crumbs items={[{ name: "Home", href: "/" }, { name: "Work", href: "/work" }, { name }]} />
+          </div>
+          <p className="sh-kicker">
+            {p.role} · {p.status} · {p.period}
+          </p>
+          <h1 className="sh-title">{p.name}</h1>
+          <p className="sh-hook">{p.hook}</p>
+          {p.tech && (
+            <p className="sh-tech">
+              <span>Built with</span>
+              {p.tech.join(" · ")}
+            </p>
+          )}
+          {p.link && (
+            <a className="sh-link" href={p.link} target="_blank" rel="noopener">
+              Visit {p.link.replace(/^https?:\/\/(www\.)?/, "")}
+            </a>
+          )}
           {p.shot && (
-            <figure className="shot">
-              {/* Plain img: the static export has no image server, and the file is already sized. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`/${p.shot}`} alt={`${name}: ${p.tag}`} width={1600} height={1000} fetchPriority="high" decoding="async" />
-            </figure>
+            // Plain img: the static export has no image server, and the file is already sized.
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className="sh-shot" src={`/${p.shot}`} alt={`${name}: ${p.tag}`} width={1600} height={1000} fetchPriority="high" decoding="async" />
           )}
         </header>
 
-        <div className="pt-10">
+        <div className="sh-body">
           {PARTS.filter(([k]) => p[k]).map(([k, label]) => (
-            <section key={k} className="prose-block">
+            <section key={k} className="sh-part">
               <h2>{label}</h2>
               <p>{p[k] as string}</p>
             </section>
           ))}
+          <section className="sh-part sh-ask">
+            <h2>Work with me</h2>
+            <p>
+              Need something like {name} for your business? <Link href="/services">See how I can help</Link> or email{" "}
+              <a href={`mailto:${site.email}`}>{site.email}</a>.
+            </p>
+          </section>
         </div>
       </article>
 
-      <aside className="pt-12">
-        <div className="cta-box">
-          <p className="text-base leading-7">
-            Need something like {name} for your business?{" "}
-            <Link className="link-underline" href="/services">See how I can help</Link> or email{" "}
-            <a className="link-underline" href={`mailto:${site.email}`}>{site.email}</a>.
-          </p>
-        </div>
-        <p className="pt-8 text-base">
-          <span className="text-custom-gray-500 dark:text-app-link-text-default">Next project: </span>
-          <a className="link-underline" href={`/work/${next.slug}`}>{next.name}</a>
-        </p>
-      </aside>
+      <a className="sh-next" href={`/work/${next.slug}`}>
+        <small>Next project</small>
+        <strong>{next.name}</strong>
+      </a>
     </PageShell>
   );
 }
