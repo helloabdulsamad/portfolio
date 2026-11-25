@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Project } from "@/lib/projects";
+import { serviceFor } from "@/lib/services";
 
 type Part = [keyof Project, string];
 
@@ -168,7 +169,7 @@ export default function WorkSheet({
             <section className="sh-part sh-ask">
               <h3>Work with me</h3>
               <p>
-                Need something like {p.name} for your business? <a href="/services">See how I can help</a> or email{" "}
+                Need something like {p.name} for your business? See our <a href={serviceFor(p.slug).href}>{serviceFor(p.slug).name} service</a> or email{" "}
                 <a href={`mailto:${email}`}>{email}</a>.
               </p>
             </section>

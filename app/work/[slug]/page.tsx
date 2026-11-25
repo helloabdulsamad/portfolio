@@ -6,6 +6,7 @@ import { getProject, getProjects, PARTS, plainName } from "@/lib/projects";
 import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
 import CloseStory from "../CloseStory";
+import { serviceFor } from "@/lib/services";
 
 export const dynamicParams = false;
 
@@ -133,7 +134,7 @@ export default async function CaseStudy({ params }: Props) {
           <section className="sh-part sh-ask">
             <h2>Work with me</h2>
             <p>
-              Need something like {name} for your business? <Link href="/services">See how I can help</Link> or email{" "}
+              Need something like {name} for your business? See our <Link href={serviceFor(p.slug).href}>{serviceFor(p.slug).name} service</Link> or email{" "}
               <a href={`mailto:${site.email}`}>{site.email}</a>.
             </p>
           </section>
