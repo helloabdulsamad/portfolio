@@ -11,6 +11,7 @@ import {
   Smiley,
   GithubLogo,
   EnvelopeSimple,
+  Phone,
   ArrowUpRight,
   type IconProps,
 } from "@phosphor-icons/react";
@@ -70,6 +71,9 @@ export default function SubPageMenu() {
           const borders = (col === 0 ? "border-r " : "") + (row > 0 ? "border-t " : "");
           return renderItem(item, borders);
         })}
+        <div className="col-span-2">
+          {renderItem({ label: "Call +234 816 681 4024", href: "tel:+2348166814024", Icon: Phone }, "border-t ")}
+        </div>
       </div>
     </nav>
   );

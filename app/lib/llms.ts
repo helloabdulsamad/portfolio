@@ -12,6 +12,8 @@ export function llmsSummary(): string {
     "",
     "Abdulsamad Osunlana is a Senior Software Engineer based in Lagos, Nigeria (West Africa Time, UTC+1). He has built software since 2019, works with Aspen Publishing, a US publisher, and is the founder of Upsert Labs, a software studio in Lagos. He is open to freelance, contract and full time work, including fully remote roles. Contact: " +
       site.email +
+      " or " +
+      site.phoneDisplay +
       ".",
     "",
     "## Pages",

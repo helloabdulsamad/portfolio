@@ -56,12 +56,12 @@ const capabilities = [
   {
     name: "Payments and checkout",
     text: "Paystack payments, subscriptions, split payouts and webhooks. Every payment is matched to its order and confirmed once.",
-    work: [["eventhome", "Ticketing"], ["upsert", "Online stores"]],
+    work: [["eventhome", "Ticketing"], ["milo", "WhatsApp sales"]],
   },
   {
     name: "Backends and APIs",
     text: "C# and .NET or Node.js on PostgreSQL, with automated tests so new changes do not break what already works.",
-    work: [["upsert-scout", "Job alerts"], ["open-source-the-standard", "Open source"]],
+    work: [["upsert-scout", "Job alerts"], ["upsert", "Online stores"]],
   },
   {
     name: "Web applications",
@@ -281,6 +281,9 @@ export default function Services() {
           <div>
             <p>I will reply with a plan and a fixed quote.</p>
             <a className="ci-btn" href={`mailto:${site.email}`}>{site.email}</a>
+            <p className="ci-call">
+              or call <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+            </p>
           </div>
         </section>
       </div>
