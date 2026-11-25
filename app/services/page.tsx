@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import PageShell, { Crumbs } from "../components/PageShell";
 import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
+import { getProject } from "@/lib/projects";
 
 const title = "Hire a senior software engineer in Lagos, Nigeria";
 const description =
@@ -49,11 +50,36 @@ const services = [
   },
 ] as const;
 
+// The page shows the six services as four capability rows, each proved by two
+// pieces of work. The full list of six still goes into the schema below.
+const capabilities = [
+  {
+    name: "Payments and checkout",
+    text: "Paystack payments, subscriptions, split payouts and webhooks. Every payment is matched to its order and confirmed once.",
+    work: [["eventhome", "Ticketing"], ["upsert", "Online stores"]],
+  },
+  {
+    name: "Backends and APIs",
+    text: "C# and .NET or Node.js on PostgreSQL, with automated tests so new changes do not break what already works.",
+    work: [["upsert-scout", "Job alerts"], ["open-source-the-standard", "Open source"]],
+  },
+  {
+    name: "Web applications",
+    text: "Next.js and React, from the screens your customers use to the admin your staff run the business from.",
+    work: [["jojo-express", "Cargo platform"], ["inkznpaint", "Print store"]],
+  },
+  {
+    name: "Stores, point of sale and mobile",
+    text: "A till that keeps selling when the network drops, WooCommerce stores your staff can run, and Flutter apps on both app stores.",
+    work: [["tredar-pos", "Point of sale"], ["smarttasker-indonesia", "Mobile app"]],
+  },
+] as const;
+
 const steps = [
-  "A written plan and a fixed quote before any code is written.",
-  "Clear updates you can follow without a technical background.",
-  "Automated tests on every change, so what works today keeps working.",
-  "A clean handover your next developer can pick up straight away.",
+  ["Plan", "A written plan and a fixed quote before any code is written."],
+  ["Update", "Clear updates you can follow without a technical background."],
+  ["Test", "Automated tests on every change, so what works today keeps working."],
+  ["Hand over", "A clean handover your next developer can pick up straight away."],
 ];
 
 const faqs: [string, string][] = [
@@ -143,100 +169,118 @@ const jsonLd = graph(
 
 export default function Services() {
   return (
-    <PageShell narrow>
+    <PageShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(jsonLd) }} />
-      <Crumbs items={[{ name: "Home", href: "/" }, { name: "Services" }]} />
+      <div className="ci">
+        <Crumbs items={[{ name: "Home", href: "/" }, { name: "Services" }]} />
 
-      <h1 className="font-display text-[34px] font-semibold leading-[1.05] tracking-[-0.01em] sm:text-[44px] pb-5">{title}</h1>
-      <p className="lead pb-4">
-        I am Abdulsamad Osunlana, a Senior Software Engineer in Lagos and the founder of Upsert Labs. Since 2019 I have built payments,
-        online stores, point of sale, ticketing and web apps for businesses in Nigeria and abroad.
-      </p>
-      <p className="text-base leading-7">
-        You can hire me on my own as a freelance or contract engineer, or bring a full project to Upsert Labs.{" "}
-        <a className="link-underline" href={`mailto:${site.email}`}>Email me</a> or{" "}
-        <a className="link-underline" href={site.upwork} target="_blank" rel="noopener">hire me on Upwork</a>.
-      </p>
+        <header className="ci-hero">
+          <h1>{title}</h1>
+          <div>
+            <p className="ci-lede">
+              I am Abdulsamad Osunlana, a Senior Software Engineer in Lagos and the founder of Upsert Labs. Since 2019 I have built payments,
+              online stores, point of sale, ticketing and web apps for businesses in Nigeria and abroad. Hire me on my own as a freelance or
+              contract engineer, or bring a full project to Upsert Labs.
+            </p>
+            <div className="ci-acts">
+              <a className="ci-btn" href={`mailto:${site.email}`}>Email me</a>
+              <a className="ci-tl" href={site.upwork} target="_blank" rel="noopener">Hire me on Upwork</a>
+            </div>
+          </div>
+        </header>
 
-      <section className="pt-12" aria-labelledby="what">
-        <h2 id="what" className="section-kicker">What I build</h2>
-        <ul className="exp-list">
-          {services.map((s) => (
-            <li key={s.name} className="exp-row">
-              <h3 className="font-medium">{s.name}</h3>
-              <p className="text-base leading-7 pt-1">{s.text}</p>
-              <p className="text-sm text-custom-gray-500 dark:text-app-link-text-default pt-1">
-                See{" "}
-                {s.proof.map(([n, slug], i) => (
-                  <span key={slug}>
-                    {i > 0 && " and "}
-                    <a className="link-underline" href={`/work/${slug}`}>{n}</a>
-                  </span>
-                ))}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="pt-12" aria-labelledby="studio">
-        <h2 id="studio" className="section-kicker">Upsert Labs, my software studio</h2>
-        <p className="text-base leading-7 pb-4">
-          Upsert Labs builds its own products, <Link className="link-underline" href="/work/upsert">Upsert</Link>,{" "}
-          <Link className="link-underline" href="/work/eventhome">EventHome</Link> and{" "}
-          <Link className="link-underline" href="/work/upsert-scout">Upsert Scout</Link>, and takes on client projects. For a client, we run the
-          job from research and design to a full build, then deploy it and keep it running.
-        </p>
-        <p className="text-base leading-7">
-          Recent client builds are <Link className="link-underline" href="/work/jojo-express">Jojo Express</Link>, a cargo platform that prices,
-          books and tracks parcels from Nigeria to the UK, Europe and North America, and the{" "}
-          <Link className="link-underline" href="/work/inkznpaint">Inkz &rsquo;N&rsquo; Paint</Link> online print store.
-        </p>
-      </section>
-
-      <section className="pt-12" aria-labelledby="how">
-        <h2 id="how" className="section-kicker">How I work</h2>
-        <ol className="exp-list">
-          {steps.map((s) => (
-            <li key={s} className="exp-row text-base leading-7">{s}</li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="pt-12" aria-labelledby="clients">
-        <h2 id="clients" className="section-kicker">Where I have worked</h2>
-        <p className="text-base leading-7">
-          Aspen Publishing in the United States, AXA Mansard in Nigeria, Smarttasker of Australia for its Indonesian launch, AIpidata in the
-          United Kingdom, BUNKR Essentials and SolversBay in Lagos, and Upsert Labs clients Jojo Express and Inkz &rsquo;N&rsquo; Paint.{" "}
-          <Link className="link-underline" href="/about">More about me</Link>.
-        </p>
-      </section>
-
-      <section className="pt-12 faq" aria-labelledby="faq">
-        <h2 id="faq" className="section-kicker">Questions people ask</h2>
-        {faqs.map(([q, a]) => (
-          <details key={q}>
-            <summary>
-              <h3 className="contents">{q}</h3>
-            </summary>
-            <p>{a}</p>
-          </details>
+        <h2 className="sr-only">What I build</h2>
+        {capabilities.map((c, n) => (
+          <section key={c.name} className="ci-row" aria-labelledby={`cap-${n}`}>
+            <div>
+              <p className="ci-num">{String(n + 1).padStart(2, "0")}</p>
+              <h3 id={`cap-${n}`} className="ci-h">{c.name}</h3>
+              <p className="ci-text">{c.text}</p>
+            </div>
+            <ul className="ci-shots">
+              {c.work.map(([slug, kind]) => {
+                const p = getProject(slug);
+                if (!p) return null;
+                return (
+                  <li key={slug}>
+                    <Link href={`/work/${slug}`}>
+                      <span className="ci-fig">
+                        {p.shot && (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={`/${p.shot}`} alt={`${p.name} screenshot`} width={1600} height={1000} loading="lazy" decoding="async" />
+                        )}
+                      </span>
+                      <span className="ci-cap">
+                        {p.name} <i>{kind}</i>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
         ))}
-      </section>
 
-      <section className="pt-12" aria-labelledby="start">
-        <h2 id="start" className="section-kicker">Start a project</h2>
-        <div className="cta-box">
-          <p className="text-base leading-7">
-            Tell me what you are building and where it hurts. I will reply with a plan and a fixed quote.
+        <section className="ci-row" aria-labelledby="how">
+          <h2 id="how" className="ci-h">How I work</h2>
+          <ol className="ci-steps">
+            {steps.map(([name, text]) => (
+              <li key={name}>
+                <b>{name}</b>
+                {text}
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="ci-row" aria-labelledby="studio">
+          <h2 id="studio" className="ci-h">Upsert Labs</h2>
+          <div className="ci-prose">
+            <p>
+              My software studio builds its own products, <Link href="/work/upsert">Upsert</Link>,{" "}
+              <Link href="/work/eventhome">EventHome</Link> and <Link href="/work/upsert-scout">Upsert Scout</Link>, and takes on client
+              projects. For a client, we run the job from research and design to a full build, then deploy it to your own server and keep it
+              running.
+            </p>
+            <p>
+              Recent client builds are <Link href="/work/jojo-express">Jojo Express</Link>, a cargo platform that prices, books and tracks
+              parcels from Nigeria to the UK, Europe and North America, and the <Link href="/work/inkznpaint">Inkz &rsquo;N&rsquo; Paint</Link>{" "}
+              online print store.
+            </p>
+          </div>
+        </section>
+
+        <section className="ci-clients" aria-labelledby="clients">
+          <h2 id="clients">Where I have worked</h2>
+          <p>
+            Aspen Publishing in the United States, AXA Mansard in Nigeria, Smarttasker of Australia for its Indonesian launch, AIpidata in the
+            United Kingdom, BUNKR Essentials and SolversBay in Lagos, and Upsert Labs clients Jojo Express and Inkz &rsquo;N&rsquo; Paint.{" "}
+            <Link href="/about">More about me</Link>.
           </p>
-          <p className="text-base leading-7 pt-3">
-            <a className="link-underline" href={`mailto:${site.email}`}>{site.email}</a> ·{" "}
-            <a className="link-underline" href={site.upwork} target="_blank" rel="noopener">Upwork</a> ·{" "}
-            <a className="link-underline" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener">LinkedIn</a>
-          </p>
-        </div>
-      </section>
+        </section>
+
+        <section className="ci-row ci-faq" aria-labelledby="faq">
+          <h2 id="faq" className="ci-h">Questions people ask</h2>
+          <div>
+            {faqs.map(([q, a]) => (
+              <details key={q}>
+                <summary>
+                  <h3 className="contents">{q}</h3>
+                </summary>
+                <p>{a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="ci-end" aria-labelledby="start">
+          <h2 id="start">Tell me what you are building.</h2>
+          <div>
+            <p>I will reply with a plan and a fixed quote.</p>
+            <a className="ci-btn" href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+        </section>
+      </div>
     </PageShell>
   );
 }
