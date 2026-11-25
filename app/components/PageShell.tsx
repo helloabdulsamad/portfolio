@@ -7,17 +7,27 @@ import SubPageMenu from "./SubPageMenu";
 // header, a wide column for the colour blocks and the link grid at the foot.
 // "sheet" drops the header and the column, so a case study can fill the
 // screen edge to edge like the story sheet on the home page.
-export default function PageShell({ children, sheet = false }: { children: React.ReactNode; sheet?: boolean }) {
+// "narrow" keeps the original 600px reading column, used by the services page.
+export default function PageShell({
+  children,
+  sheet = false,
+  narrow = false,
+}: {
+  children: React.ReactNode;
+  sheet?: boolean;
+  narrow?: boolean;
+}) {
+  const wrap = narrow ? "mx-auto w-full max-w-[600px] px-4" : "shell-wrap";
   return (
     <div className="min-h-dvh flex flex-col text-custom-gray-900 dark:text-app-text-dark">
       {!sheet && (
         <header className="w-full">
-          <div className="shell-wrap pt-[max(env(safe-area-inset-top),16px)] md:pt-4">
+          <div className={`${wrap} pt-[max(env(safe-area-inset-top),16px)] md:pt-4`}>
             <Header />
           </div>
         </header>
       )}
-      <main className={sheet ? "flex-1 w-full" : "flex-1 shell-wrap"}>{children}</main>
+      <main className={sheet ? "flex-1 w-full" : `flex-1 ${wrap}`}>{children}</main>
       <footer className="w-full pt-[120px] md:pt-20">
         <div className="mx-auto w-full max-w-[600px] px-4 pb-[max(env(safe-area-inset-bottom),16px)] md:pb-4">
           <div className="mb-[16px]">
