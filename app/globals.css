@@ -275,7 +275,7 @@ html:has(.sv-band) body { overflow-x:clip; }
 .sv-num { margin:0; font-size:14px; color:var(--b-mute); font-variant-numeric:tabular-nums; }
 .ci .sv-name { margin:14px 0 0; font-size:clamp(40px,5.6vw,88px); line-height:.92; letter-spacing:-.055em; }
 .sv-bar { display:block; margin-top:28px; height:2px; background:var(--b-rule); overflow:hidden; max-width:320px; }
-.sv-bar i { display:block; height:100%; background:currentColor; transform-origin:left; transform:scaleX(1); }
+.sv-bar i { display:block; height:100%; background:currentColor; transform-origin:left; transform:scaleX(var(--p,0)); }
 .sv-promise { margin:0; max-width:22ch; font-size:clamp(26px,2.9vw,42px); line-height:1.12; letter-spacing:-.03em; font-weight:600; }
 .sv-grid { margin-top:clamp(36px,6vh,56px); display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3vw,44px); }
 .sv-band h4 { margin:0 0 14px; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--b-mute); font-weight:500; }
@@ -291,11 +291,30 @@ html:has(.sv-band) body { overflow-x:clip; }
 .sv-work span { font-size:14px; color:var(--b-mute); text-align:right; }
 .sv-work a:hover b { text-decoration:underline; text-underline-offset:4px; }
 @supports (animation-timeline: view()) {
-  @keyframes sv-fill { from { transform:scaleX(0); } to { transform:scaleX(1); } }
   @keyframes sv-rise { from { opacity:0; transform:translateY(48px); } to { opacity:1; transform:none; } }
-  .sv-bar i { animation:sv-fill linear both; animation-timeline:--band; animation-range:contain 0% exit 0%; }
   .sv-name, .sv-promise { animation:sv-rise linear both; animation-timeline:view(); animation-range:entry 0% entry 90%; }
 }
+
+/* About page: hero, then the same colour bands as the services page */
+.ab-hero { display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(28px,5vw,72px); align-items:end; padding:clamp(28px,7vh,80px) 0 clamp(56px,10vh,110px); }
+.ab .ab-title { margin:0; font-size:clamp(44px,6.4vw,96px); line-height:.95; letter-spacing:-.05em; font-weight:700; max-width:12ch; }
+.ab-intro { padding-top:32px; }
+.ab-intro p { margin:0 0 16px; max-width:56ch; font-size:18px; line-height:1.65; color:var(--ci-soft); }
+.ab .about-photo { max-width:460px; justify-self:end; }
+.ab-exp { list-style:none; margin:0; padding:0; }
+.ab-exp li { padding:18px 0; border-top:1px solid var(--b-rule); }
+.ab-exp-top { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+.ab-exp-top b { font-size:clamp(20px,1.8vw,24px); letter-spacing:-.02em; }
+.ab-exp-top span { font-size:14px; color:var(--b-mute); }
+.ab-role { margin:4px 0 0; font-size:15px; color:var(--b-mute); }
+.ab-body { margin:8px 0 0; max-width:58ch; font-size:16px; line-height:1.6; }
+.ab .ab-stack { max-width:28ch; }
+.ab-mail { margin:36px 0 0; }
+.ab .ab-mail a { font-size:clamp(22px,2.6vw,34px); font-weight:600; letter-spacing:-.02em; color:var(--b-fg); text-decoration:none; border-bottom:2px solid currentColor; padding-bottom:4px; }
+.ab-call { margin:16px 0 0; font-size:17px; color:var(--b-mute); }
+.ab .ab-call a { color:var(--b-fg); }
+.ab .ab-links { margin-top:40px; max-width:520px; }
+@media (max-width:860px) { .ab-hero { grid-template-columns:1fr; } .ab .about-photo { justify-self:start; } }
 
 .sv-how { margin-top:clamp(64px,12vh,140px); }
 .sv-how h2, .sv-studio h2, .sv-clients h2, .sv-faq h2 { margin:0 0 22px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--ci-mute); font-weight:500; }
@@ -339,7 +358,7 @@ html:has(.sv-band) body { overflow-x:clip; }
   .ci-hero, .sv-faq { grid-template-columns:1fr; }
   .sv-in, .sv-grid { grid-template-columns:1fr; }
   .sv-side { position:static; }
-  .sv-bar { display:none; }
+  .sv-bar { margin-top:20px; }
   .sv-how ol, .sv-clients ul { grid-template-columns:1fr 1fr; }
   .sv-how li:nth-child(3) { padding-left:0; border-left:0; }
 }
@@ -348,7 +367,7 @@ html:has(.sv-band) body { overflow-x:clip; }
   .sv-how li, .sv-how li + li { padding-left:0; border-left:0; border-bottom:1px solid var(--ci-rule); padding-bottom:20px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sv-bar i, .sv-name, .sv-promise { animation:none !important; }
+  .sv-name, .sv-promise { animation:none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
