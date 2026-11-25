@@ -6,15 +6,18 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const pad2 = (n) => String(n).padStart(2, "0");
 
-  /* ---------- Work cards ---------- */
+  /* ---------- Work cards ----------
+     The deploy writes the cards into the page (scripts/prerender-home.mjs), so
+     crawlers and AI tools see them without running this file. Each card links
+     to its own case study page. Without that step, build them here. */
   const stack = $("[data-stack]");
-  P.forEach((p, i) => {
+  if (!stack.children.length) P.forEach((p, i) => {
     const li = document.createElement("li");
     li.className = p.shot ? "card" : "card no-shot";
     li.style.background = p.ink;
     li.style.color = p.paper;
     li.innerHTML = `
-      <button class="card-btn" type="button" data-open="${i}" aria-label="Read the ${p.name} story">
+      <a class="card-btn" href="/work/${p.slug}" data-open="${i}" aria-label="Read the ${p.name} story">
         <span class="card-top"><span>${p.status} · ${p.period}</span></span>
         <span>
           <h3 class="card-name">${p.name}</h3>
@@ -24,7 +27,7 @@
           <p class="card-hook">${p.tag}</p>
           <span class="card-cta"><span>Read the story</span></span>
         </span>
-      </button>
+      </a>
       ${p.shot ? `<span class="card-shot" aria-hidden="true"><img src="${p.shot}" alt="" loading="lazy" width="1600" height="1000" /></span>` : ""}
       <span class="card-shade" aria-hidden="true"></span>`;
     stack.appendChild(li);
@@ -218,7 +221,12 @@
       const opener = $(`[data-open="${current}"]`);
       opener && opener.focus({ preventScroll: true });
     }
-    $$("[data-open]").forEach((b) => b.addEventListener("click", () => openSheet(+b.dataset.open)));
+    // A plain click opens the story in the sheet. A new tab click follows the link to the full page.
+    $$("[data-open]").forEach((b) => b.addEventListener("click", (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      openSheet(+b.dataset.open);
+    }));
     $("[data-sheet-close]").addEventListener("click", closeSheet);
     $("[data-sheet-next]").addEventListener("click", () => {
       const i = (current + 1) % P.length;

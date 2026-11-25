@@ -5,6 +5,8 @@ import type { ComponentType } from "react";
 import {
   HandWaving,
   Briefcase,
+  Wrench,
+  UserCircle,
   LinkedinLogo,
   Smiley,
   GithubLogo,
@@ -22,17 +24,19 @@ export type NavItem = {
 
 export const NAV: NavItem[] = [
   { label: "Hello", href: "/", Icon: HandWaving },
-  { label: "Work", href: "/#work", Icon: Briefcase },
+  { label: "Work", href: "/work", Icon: Briefcase },
   { label: "About Me", href: "/about", Icon: Smiley },
+  { label: "Services", href: "/services", Icon: Wrench },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/helloabdulsamad/", Icon: LinkedinLogo },
   { label: "GitHub", href: "https://github.com/helloabdulsamad", Icon: GithubLogo },
   { label: "Email", href: "mailto:osunlanaabdulsamad@gmail.com", Icon: EnvelopeSimple },
+  { label: "Upwork", href: "https://www.upwork.com/freelancers/~01b37892b37a65770a", Icon: UserCircle },
 ];
 
 export default function SubPageMenu() {
   const renderItem = (item: NavItem, borders: string) => {
-    // Only /about is a Next.js page; the home page is a plain HTML page, so it needs a full load.
-    const Tag = item.href === "/about" ? Link : "a";
+    // The home page is a plain HTML page, so it needs a full load. The rest are Next.js pages.
+    const Tag = item.href.startsWith("/") && item.href !== "/" ? Link : "a";
     return (
     <Tag
       key={item.label}
@@ -58,7 +62,7 @@ export default function SubPageMenu() {
 
   return (
     <nav className="rounded-[16px] border border-custom-gray-200 dark:border-app-border-dark overflow-hidden">
-      {/* 2 columns x 3 rows, same on every breakpoint */}
+      {/* 2 columns x 4 rows, same on every breakpoint */}
       <div className="grid grid-cols-2">
         {NAV.map((item, i) => {
           const col = i % 2;

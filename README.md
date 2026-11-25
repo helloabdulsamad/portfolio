@@ -11,9 +11,11 @@ The site has two parts. The build joins them into one folder of plain files.
 | `/` home page with the work cards | `site/index.html`, `site/data.js`, `site/main.js`, `site/styles.css` | Plain HTML, CSS and JavaScript. No build step |
 | `/milo/` Milo product page | `site/milo/` | Plain HTML |
 | `/about` | `app/about/` | Next.js (static export) |
-| `/sitemap.xml`, `/robots.txt`, social preview image | `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx` | Next.js |
+| `/services` services and FAQ page | `app/services/` | Next.js (static export) |
+| `/work` and `/work/<slug>` case study pages | `app/work/`, built from `site/data.js` | Next.js (static export) |
+| `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/llms-full.txt`, social preview image | `app/sitemap.ts`, `app/robots.ts`, `app/llms.txt/`, `app/llms-full.txt/`, `app/opengraph-image.tsx` | Next.js |
 
-The site runs on a VPS with Coolify. Coolify builds the `Dockerfile`: it runs `npm run build` with `STATIC_EXPORT=true`, which writes the Next.js pages to `out/`, copies everything in `site/` over `out/`, and serves `out/` with nginx (`nginx.conf`). Coolify also gets the free Let's Encrypt certificate for helloabdulsamad.com. A push to `main` deploys the site by itself through the `helloabdulsamad-coolify` GitHub App.
+The site runs on a VPS with Coolify. Coolify builds the `Dockerfile`: it runs `npm run build` with `STATIC_EXPORT=true`, which writes the Next.js pages to `out/`, copies everything in `site/` over `out/`, runs `scripts/prerender-home.mjs` to write the work cards and the schema.org data into the home page, and serves `out/` with nginx (`nginx.conf`). Coolify also gets the free Let's Encrypt certificate for helloabdulsamad.com. A push to `main` deploys the site by itself through the `helloabdulsamad-coolify` GitHub App.
 
 ## Folders
 
@@ -33,9 +35,16 @@ app/                  Next.js: the About page and site metadata
 public/               Images used by the About page
 ```
 
+## Search engines and AI answer engines
+
+- Every page has a title, description, canonical URL, Open Graph and Twitter tags.
+- `app/lib/schema.ts` holds the schema.org Person, Upsert Labs and WebSite data. Every page carries it, and the home page gets a copy at deploy time.
+- `app/lib/site.ts` holds the facts about the owner. Keep them true and the same as LinkedIn, GitHub and Upwork.
+- robots.txt allows search engines and AI crawlers. llms.txt and llms-full.txt are built from `site/data.js`.
+
 ## Adding a project to the home page
 
-1. Add an entry to `site/data.js`. The cards appear in the order of the list.
+1. Add an entry to `site/data.js`. The cards appear in the order of the list. Its case study page at `/work/<slug>`, the sitemap and llms.txt pick it up on the next build.
 2. Add a 1600 x 1000 WebP image to `site/img/work/` and point `shot` at it.
 3. Change the `?v=` number on the `styles.css`, `data.js` and `main.js` links in `site/index.html`, so visitors get the new files.
 
@@ -54,5 +63,5 @@ npm run dev
 `npm run dev` serves the About page at http://localhost:3000/about. To see the home page as it will look live, build it the way the deploy does and serve `out/`:
 
 ```bash
-STATIC_EXPORT=true npm run build && cp -R site/. out/ && npx serve out
+STATIC_EXPORT=true npm run build && cp -R site/. out/ && node scripts/prerender-home.mjs out && npx serve out
 ```

@@ -22,9 +22,9 @@ export default function Header() {
         />
       </a>
       <div>
-        <h1 className="font-display text-[16px] font-semibold leading-8 tracking-[0.5px] text-custom-gray-900 dark:text-app-text-dark">
+        <p className="font-display text-[16px] font-semibold leading-8 tracking-[0.5px] text-custom-gray-900 dark:text-app-text-dark">
           Abdulsamad Osunlana
-        </h1>
+        </p>
         <p className="text-base leading-6 tracking-[0.5px] text-custom-gray-500 dark:text-app-text-dark">
           Senior Software Engineer <span className="text-custom-gray-500">/</span> Founder, Upsert Labs
         </p>
