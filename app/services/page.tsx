@@ -204,11 +204,14 @@ export default function Services() {
                 return (
                   <li key={slug}>
                     <Link href={`/work/${slug}`}>
-                      <span className="ci-fig">
-                        {p.shot && (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={`/${p.shot}`} alt={`${p.name} screenshot`} width={1600} height={1000} loading="lazy" decoding="async" />
-                        )}
+                      <span className="ci-mac">
+                        <span className="ci-fig">
+                          {p.shot && (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={`/${p.shot}`} alt={`${p.name} screenshot`} width={1600} height={1000} loading="lazy" decoding="async" />
+                          )}
+                        </span>
+                        <span className="ci-base" aria-hidden="true"><i /></span>
                       </span>
                       <span className="ci-cap">
                         {p.name} <i>{kind}</i>
