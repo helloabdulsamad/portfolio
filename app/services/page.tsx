@@ -205,14 +205,9 @@ export default function Services() {
           <h1>{title}</h1>
           <div>
             <p className="ci-lede">
-              Abdulsamad Osunlana runs Upsert Labs, a software studio in Lagos. We build web applications, backends and
-              APIs, mobile apps and AI assistants for businesses in Nigeria and abroad. Bring us a full project, or hire Abdulsamad on his own as a
-              freelance or contract engineer.
+              Abdulsamad Osunlana runs Upsert Labs, a software studio in Lagos. We build web applications, backends and APIs, mobile apps and AI
+              assistants for businesses in Nigeria and abroad.
             </p>
-            <div className="ci-acts">
-              <a className="ci-btn" href={`mailto:${site.email}`}>Start a project</a>
-              <a className="ci-tl" href={site.upwork} target="_blank" rel="noopener">Hire Abdulsamad on Upwork</a>
-            </div>
           </div>
         </header>
 
