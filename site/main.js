@@ -207,16 +207,18 @@
     }
     function openSheet(i) {
       fillSheet(i);
+      const words = [$("[data-sheet-title]"), $("[data-sheet-hook]")];
+      if (!RM && window.gsap) gsap.set(words, { y: 60, opacity: 0 });
       sheet.hidden = false;
-      html.classList.add("sheet-open");
+      // Keep the page scrollbar in place. Hiding it would change the page width,
+      // make the pinned sections recalculate and the cards jump under the sheet.
       lenis && lenis.stop();
       anim(sheet, { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)" }, 0.9);
-      if (!RM && window.gsap) gsap.from([$("[data-sheet-title]"), $("[data-sheet-hook]")], { y: 60, opacity: 0, duration: 1.1, ease: "expo.out", stagger: 0.08, delay: 0.35 });
-      $("[data-sheet-close]").focus();
+      if (!RM && window.gsap) gsap.to(words, { y: 0, opacity: 1, duration: 1.1, ease: "expo.out", stagger: 0.08, delay: 0.35 });
+      $("[data-sheet-close]").focus({ preventScroll: true });
     }
     function closeSheet() {
       anim(sheet, { clipPath: "inset(0% 0 0 0)" }, { clipPath: "inset(0 0 100% 0)" }, 0.7, () => { sheet.hidden = true; });
-      html.classList.remove("sheet-open");
       lenis && lenis.start();
       const opener = $(`[data-open="${current}"]`);
       opener && opener.focus({ preventScroll: true });
