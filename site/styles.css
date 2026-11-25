@@ -40,7 +40,7 @@ button { font:inherit; color:inherit; background:none; border:0; cursor:pointer;
 .menu li a { display:block; }
 .menu { overflow-y:auto; }
 .menu li small { font-family:"Geist", system-ui, sans-serif; font-size:13px; letter-spacing:.06em; color:#77736c; margin-right:16px; vertical-align:top; }
-.menu li span { display:inline-block; font-weight:700; font-size:clamp(44px,8.6vw,112px); line-height:.98; letter-spacing:-.05em; transition:transform .6s var(--ease); }
+.menu li span { display:inline-block; font-weight:700; font-size:clamp(40px,min(8.6vw,10vh),112px); line-height:.98; letter-spacing:-.05em; transition:transform .6s var(--ease); }
 .menu li a:hover span, .menu li a:focus-visible span { transform:translateX(24px); }
 .menu-foot { margin:0; font-family:"Geist", system-ui, sans-serif; font-size:13px; }
 
@@ -246,3 +246,9 @@ html[data-theme="light"] .hero-photo { mix-blend-mode:multiply; }
 .card-tech { margin:14px 0 0; font-size:14px; line-height:1.45; font-weight:500; opacity:.8; max-width:34ch; }
 .sheet-tech { margin:22px 0 0; font-size:16px; line-height:1.5; max-width:60ch; }
 .sheet-tech span { display:block; margin-bottom:6px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; opacity:.7; font-weight:500; }
+
+/* Section titles are real headings now; keep the kicker look. */
+h2.kicker { font-weight:400; }
+.about .kicker { color:#66625b; }
+.aspen-links { display:flex; flex-wrap:wrap; gap:14px 28px; margin:26px 0 0; font-size:15px; }
+.aspen-links a { font-weight:600; border-bottom:1.5px solid currentColor; padding-bottom:3px; }

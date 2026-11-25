@@ -1,3 +1,4 @@
+import Link from "next/link";
  
 import Image from "next/image";
 import Header from "../components/header/Header";
@@ -73,7 +74,8 @@ export default function About() {
             <a className="link-underline" href="mailto:osunlanaabdulsamad@gmail.com">osunlanaabdulsamad@gmail.com</a> ·{" "}
             <a className="link-underline" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·{" "}
             <a className="link-underline" href="https://github.com/helloabdulsamad" target="_blank" rel="noopener noreferrer">GitHub</a> ·{" "}
-            <a className="link-underline" href="/#work">See the work</a>
+            <Link className="link-underline" href="/work">See the work</Link> ·{" "}
+            <Link className="link-underline" href="/services">Services and FAQ</Link>
           </p>
         </Reveal>
       </main>

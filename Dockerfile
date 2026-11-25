@@ -7,11 +7,13 @@ ENV NEXT_TELEMETRY_DISABLED=1
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-# Next writes /about, the sitemap, robots.txt and the social image to out/.
-# The home page and Milo page in site/ go over the top.
+# Next writes /about, /services, /work, the sitemap, robots.txt, llms.txt and the
+# social image to out/. The home page and Milo page in site/ go over the top,
+# then the work cards and structured data are written into the home page.
 RUN STATIC_EXPORT=true npm run build \
  && cp -R site/. out/ \
- && rm -f out/index.txt
+ && rm -f out/index.txt \
+ && node scripts/prerender-home.mjs out
 
 FROM nginx:1.27-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf

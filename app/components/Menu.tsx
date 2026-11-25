@@ -8,8 +8,9 @@ import ThemeQuick from "./ThemeQuick";
 
 const LINKS = [
   { label: "Home", href: "/" },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
   { label: "Email", href: `mailto:${site.email}` },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/helloabdulsamad/" },
   { label: "GitHub", href: "https://github.com/helloabdulsamad" },
@@ -82,7 +83,7 @@ export default function Menu() {
           <ul>
             {LINKS.map((l) => (
               <li key={l.label} className="menu-link">
-                {l.href.startsWith("/") && l.href !== "/" && l.href !== "/#work" ? (
+                {l.href.startsWith("/") && l.href !== "/" ? (
                   <Link href={l.href} onClick={() => setOpen(false)} className="menu-link-a">
                     <span className="menu-link-inner font-display">
                       {l.label}

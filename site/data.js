@@ -147,7 +147,7 @@ window.PROJECTS = [
   "name": "Milo",
   "oneLine": "A WhatsApp sales assistant for my own watch store, WatchShop.ng.",
   "hook": "Milo is a WhatsApp sales assistant for WatchShop.ng, my watch store. It answers customers, takes orders and sends payment links, while keeping each customer's data private.",
-  "role": "Owner of WatchShop.ng; designed and built Milo",
+  "role": "Owner of WatchShop.ng, designed and built Milo",
   "period": "Jun to Sep 2026",
   "status": "Built, not deployed",
   "link": null,

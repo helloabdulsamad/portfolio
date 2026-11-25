@@ -13,6 +13,7 @@ import PageTransition from "./components/PageTransition";
 import Menu from "./components/Menu";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { site } from "./lib/site";
+import { graph, ldJson, personNode, studioNode, websiteNode } from "./lib/schema";
 
 
 export const metadata: Metadata = {
@@ -27,24 +28,20 @@ export const metadata: Metadata = {
   applicationName: site.shortName,
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
-  alternates: { canonical: "/" },
+  publisher: site.name,
+  // Each page sets its own canonical URL. None here, so no page inherits the home page's.
   openGraph: {
     type: "website",
     locale: site.locale,
-    url: site.url,
     siteName: site.name,
     title: site.title,
     description: site.description,
   },
-  twitter: site.twitter
-    ? {
-        card: "summary_large_image",
-        title: site.title,
-        description: site.description,
-        creator: site.twitter,
-        site: site.twitter,
-      }
-    : undefined,
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
   robots: {
     index: true,
     follow: true,
@@ -58,6 +55,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
+  },
+  alternates: {
+    types: { "text/plain": [{ url: "/llms.txt", title: "LLM summary" }] },
   },
 };
 
@@ -76,31 +76,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: site.name,
-    alternateName: site.shortName,
-    jobTitle: "Senior Software Engineer",
-    url: site.url,
-    email: `mailto:${site.email}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Lagos",
-      addressCountry: "NG",
-    },
-    sameAs: site.sameAs,
-    knowsAbout: [
-      "Software Engineering",
-      "Payments Infrastructure",
-      "Clean Architecture",
-      "React",
-      "Next.js",
-      "TypeScript",
-      "C#/.NET",
-    ],
-    description: site.description,
-  };
+  const jsonLd = graph(websiteNode, personNode, studioNode);
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -117,7 +93,7 @@ export default function RootLayout({
       >
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: ldJson(jsonLd) }}
         />
         <ViewTransitions>
           <ThemeProvider>
