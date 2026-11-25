@@ -72,6 +72,7 @@ export default function About() {
           <p className="section-kicker">Contact</p>
           <p className="text-base leading-7">
             <a className="link-underline" href="mailto:osunlanaabdulsamad@gmail.com">osunlanaabdulsamad@gmail.com</a> ·{" "}
+            <a className="link-underline" href="tel:+2348166814024">+234 816 681 4024</a> ·{" "}
             <a className="link-underline" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·{" "}
             <a className="link-underline" href="https://github.com/helloabdulsamad" target="_blank" rel="noopener noreferrer">GitHub</a> ·{" "}
             <Link className="link-underline" href="/work">See the work</Link> ·{" "}

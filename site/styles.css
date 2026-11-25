@@ -106,6 +106,8 @@ button { font:inherit; color:inherit; background:none; border:0; cursor:pointer;
 .contact-title { margin:0 0 40px; font-size:clamp(46px,9vw,150px); line-height:.92; letter-spacing:-.055em; font-weight:800; max-width:11em; }
 .contact-mail { display:inline-flex; padding:20px 30px; border-radius:999px; background:var(--ember); color:var(--ink); font-size:clamp(16px,1.8vw,22px); font-weight:600; letter-spacing:-.01em; will-change:transform; max-width:100%; }
 .contact-mail span { overflow-wrap:anywhere; }
+.contact-phone { display:block; width:fit-content; margin-top:22px; font-size:clamp(18px,2vw,26px); font-weight:600; letter-spacing:-.01em; border-bottom:1px solid var(--line); padding-bottom:4px; transition:border-color .3s; }
+.contact-phone:hover { border-color:var(--paper); }
 .contact-links { list-style:none; display:flex; gap:28px; padding:0; margin:36px 0 0; }
 .contact-links a { border-bottom:1px solid var(--line); padding-bottom:4px; transition:border-color .3s; }
 .contact-links a:hover { border-color:var(--paper); }
@@ -210,6 +212,7 @@ html[data-theme="light"] .timeline, html[data-theme="light"] .timeline li { bord
 .wg-cell { position:relative; display:flex; align-items:center; gap:10px; height:52px; padding:0 16px; font-size:14px; letter-spacing:.02em; border-top:1px solid var(--line); transition:background .25s; }
 .wg-cell:nth-child(-n+2) { border-top:0; }
 .wg-cell:nth-child(odd) { border-right:1px solid var(--line); }
+.wg-cell.wg-wide { grid-column:1 / -1; border-right:0; }
 .wg-cell:hover, .wg-cell:focus-visible { background:rgba(127,127,127,.08); }
 .wg-ico { display:inline-flex; opacity:.85; }
 .wg-ico svg { width:20px; height:20px; fill:currentColor; }

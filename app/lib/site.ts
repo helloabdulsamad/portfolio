@@ -10,6 +10,8 @@ export const site = {
   description:
     "Senior Software Engineer in Lagos, Nigeria, and founder of Upsert Labs. I build payments, online stores, point of sale and web apps that businesses can trust with their money, in .NET, TypeScript and Next.js.",
   email: "osunlanaabdulsamad@gmail.com",
+  phone: "+2348166814024",
+  phoneDisplay: "+234 816 681 4024",
   twitter: "",
   locale: "en_GB",
   image: "/img/me-800.webp",
