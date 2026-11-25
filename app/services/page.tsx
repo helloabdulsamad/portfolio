@@ -178,18 +178,18 @@ export default function Services() {
           <h1>{title}</h1>
           <div>
             <p className="ci-lede">
-              I am Abdulsamad Osunlana, a Senior Software Engineer in Lagos and the founder of Upsert Labs. Since 2019 I have built payments,
-              online stores, point of sale, ticketing and web apps for businesses in Nigeria and abroad. Hire me on my own as a freelance or
-              contract engineer, or bring a full project to Upsert Labs.
+              Upsert Labs is a software studio in Lagos, founded by Senior Software Engineer Abdulsamad Osunlana. We build payments, online
+              stores, point of sale, ticketing and web apps for businesses in Nigeria and abroad. Bring us a full project, or hire Abdulsamad on
+              his own as a freelance or contract engineer.
             </p>
             <div className="ci-acts">
-              <a className="ci-btn" href={`mailto:${site.email}`}>Email me</a>
-              <a className="ci-tl" href={site.upwork} target="_blank" rel="noopener">Hire me on Upwork</a>
+              <a className="ci-btn" href={`mailto:${site.email}`}>Start a project</a>
+              <a className="ci-tl" href={site.upwork} target="_blank" rel="noopener">Hire Abdulsamad on Upwork</a>
             </div>
           </div>
         </header>
 
-        <h2 className="sr-only">What I build</h2>
+        <h2 className="sr-only">What we build</h2>
         {capabilities.map((c, n) => (
           <section key={c.name} className="ci-row" aria-labelledby={`cap-${n}`}>
             <div>
@@ -225,7 +225,7 @@ export default function Services() {
         ))}
 
         <section className="ci-row" aria-labelledby="how">
-          <h2 id="how" className="ci-h">How I work</h2>
+          <h2 id="how" className="ci-h">How we work</h2>
           <ol className="ci-steps">
             {steps.map(([name, text]) => (
               <li key={name}>
@@ -237,13 +237,17 @@ export default function Services() {
         </section>
 
         <section className="ci-row" aria-labelledby="studio">
-          <h2 id="studio" className="ci-h">Upsert Labs</h2>
+          <h2 id="studio" className="ci-h">About Upsert Labs</h2>
           <div className="ci-prose">
             <p>
-              My software studio builds its own products, <Link href="/work/upsert">Upsert</Link>,{" "}
-              <Link href="/work/eventhome">EventHome</Link> and <Link href="/work/upsert-scout">Upsert Scout</Link>, and takes on client
+              We build and run our own products, <Link href="/work/upsert">Upsert</Link>,{" "}
+              <Link href="/work/eventhome">EventHome</Link> and <Link href="/work/upsert-scout">Upsert Scout</Link>, and take on client
               projects. For a client, we run the job from research and design to a full build, then deploy it to your own server and keep it
               running.
+            </p>
+            <p>
+              Every project is led by our founder, Abdulsamad Osunlana, a Senior Software Engineer who has built software since 2019.{" "}
+              <Link href="/about">More about Abdulsamad</Link>.
             </p>
             <p>
               Recent client builds are <Link href="/work/jojo-express">Jojo Express</Link>, a cargo platform that prices, books and tracks
@@ -254,11 +258,11 @@ export default function Services() {
         </section>
 
         <section className="ci-clients" aria-labelledby="clients">
-          <h2 id="clients">Where I have worked</h2>
+          <h2 id="clients">Clients and experience</h2>
           <p>
-            Aspen Publishing in the United States, AXA Mansard in Nigeria, Smarttasker of Australia for its Indonesian launch, AIpidata in the
-            United Kingdom, BUNKR Essentials and SolversBay in Lagos, and Upsert Labs clients Jojo Express and Inkz &rsquo;N&rsquo; Paint.{" "}
-            <Link href="/about">More about me</Link>.
+            Upsert Labs clients include Jojo Express and Inkz &rsquo;N&rsquo; Paint. Our founder has also built software for Aspen Publishing in
+            the United States, AXA Mansard in Nigeria, Smarttasker of Australia for its Indonesian launch, AIpidata in the United Kingdom, and
+            BUNKR Essentials and SolversBay in Lagos.
           </p>
         </section>
 
@@ -277,9 +281,9 @@ export default function Services() {
         </section>
 
         <section className="ci-end" aria-labelledby="start">
-          <h2 id="start">Tell me what you are building.</h2>
+          <h2 id="start">Tell us what you are building.</h2>
           <div>
-            <p>I will reply with a plan and a fixed quote.</p>
+            <p>We will reply with a plan and a fixed quote.</p>
             <a className="ci-btn" href={`mailto:${site.email}`}>{site.email}</a>
             <p className="ci-call">
               or call <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
