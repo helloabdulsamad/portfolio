@@ -5,6 +5,7 @@ import PageShell, { Crumbs, tone } from "../../components/PageShell";
 import { getProject, getProjects, PARTS, plainName } from "@/lib/projects";
 import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
+import CloseStory from "../CloseStory";
 
 export const dynamicParams = false;
 
@@ -92,6 +93,7 @@ export default async function CaseStudy({ params }: Props) {
       <Link className="sh-back" href="/work" style={tone(p)}>
         All work
       </Link>
+      <CloseStory />
 
       <article>
         <header className="sh-head" style={tone(p)}>
