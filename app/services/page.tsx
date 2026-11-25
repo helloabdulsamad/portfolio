@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
+
 import type { Metadata } from "next";
 import PageShell, { Crumbs } from "../components/PageShell";
 import { site, ids } from "@/lib/site";
@@ -22,55 +22,69 @@ export const metadata: Metadata = {
 // what search engines and AI answers read matches what people see.
 const services = [
   {
-    id: "payments",
-    name: "Payment applications",
-    promise: "Take money online and know every payment reached the right order.",
-    text: "Checkout, subscriptions, split payouts and ticketing built on Paystack and Stripe, with every payment matched to its order and confirmed once.",
-    items: [
-      "Checkout and card payments",
-      "Subscriptions and monthly billing",
-      "Split payouts to sellers and partners",
-      "Webhooks and payment confirmation",
-      "Refunds and payment records",
-      "Ticketing and booking with no double sales",
-    ],
-    get: ["Each payment confirmed once", "No double charges or overselling", "Money paid straight into the right account"],
-    tech: "Paystack · Stripe · .NET · Node.js · PostgreSQL",
-    work: [["eventhome", "Ticketing with split payouts"], ["upsert", "Monthly billing for online stores"], ["milo", "Sales on WhatsApp"]],
-  },
-  {
     id: "web",
     name: "Web applications",
-    promise: "The site your customers use and the admin your staff run the business from.",
-    text: "Websites, portals, online stores, point of sale and mobile apps in Next.js, React, WooCommerce and Flutter, built so your team can run them without a developer.",
+    promise: "Websites, portals and dashboards your customers and staff use every day.",
+    text: "Custom web applications in Next.js and React: customer portals, admin dashboards, online stores, offline point of sale and booking tools.",
     items: [
-      "Customer websites and portals",
-      "Admin dashboards for your staff",
-      "Online stores your team can manage",
+      "Custom web application development",
+      "Customer portals and accounts",
+      "Admin dashboards for your team",
+      "Online stores and checkout",
       "Point of sale that works offline",
       "Booking, pricing and tracking tools",
-      "Mobile apps for iOS and Android",
     ],
     get: ["Fast pages built for search", "Updates without calling a developer", "Sales that continue when the network drops"],
-    tech: "Next.js · React · TypeScript · WooCommerce · Flutter",
-    work: [["jojo-express", "Cargo booking and tracking"], ["tredar-pos", "Point of sale"], ["inkznpaint", "Online print store"], ["smarttasker-indonesia", "Mobile app"]],
+    tech: "Next.js · React · TypeScript · WooCommerce",
+    work: [["jojo-express", "Cargo booking and tracking"], ["tredar-pos", "Point of sale"], ["inkznpaint", "Online print store"], ["eventhome", "Ticketing"]],
   },
   {
     id: "backends",
     name: "Backends and APIs",
-    promise: "The engine behind your product, tested so it keeps working as you grow.",
-    text: "Backends and public APIs in C# and .NET or Node.js on PostgreSQL, with automated tests and deployment to your own server with Docker.",
+    promise: "The systems behind your product, tested so they keep working as you grow.",
+    text: "Backend development and API integration in C# and .NET or Node.js on PostgreSQL, with Paystack and Stripe payments, automated tests and deployment to your own server.",
     items: [
-      "Public and private APIs",
+      "Backend development and API integration",
+      "Payment integrations with Paystack and Stripe",
       "Database design on PostgreSQL",
-      "Payment and partner integrations",
       "Background jobs and alerts",
       "Automated tests on every change",
       "Deployment to your own server",
     ],
-    get: ["New features that do not break old ones", "Low running costs on your own server", "A clean handover to your next developer"],
-    tech: "C# · .NET · ASP.NET Core · Node.js · PostgreSQL · Docker · Azure",
-    work: [["upsert-scout", "Job alerts"], ["upsert", "Store platform"], ["open-source-the-standard", "Open source"]],
+    get: ["Each payment confirmed once", "New features that do not break old ones", "Low running costs"],
+    tech: "C# · .NET · ASP.NET Core · Node.js · PostgreSQL · Docker",
+    work: [["upsert", "Store platform"], ["upsert-scout", "Job alerts"], ["open-source-the-standard", "Open source"]],
+  },
+  {
+    id: "mobile",
+    name: "Mobile development",
+    promise: "Apps for iOS and Android, built once and released on both stores.",
+    text: "Cross-platform apps in Flutter, released on the App Store and Google Play, in more than one language and connected to your existing backend.",
+    items: [
+      "Cross-platform apps in Flutter",
+      "App Store and Google Play release",
+      "Apps in more than one language",
+      "Connection to your existing backend",
+    ],
+    get: ["One codebase for both stores", "Apps ready for new markets"],
+    tech: "Flutter · Dart · Firebase",
+    work: [["smarttasker-indonesia", "Mobile app"]],
+  },
+  {
+    id: "ai",
+    name: "AI development",
+    promise: "AI assistants that answer customers and take orders safely.",
+    text: "AI sales assistants on WhatsApp that answer from your own catalogue, look up and take orders, send payment links and hand over to a person when needed.",
+    items: [
+      "Sales assistants on WhatsApp",
+      "Answers from your own product catalogue",
+      "Order lookup and order taking",
+      "Payment links inside the chat",
+      "Handover to a person when needed",
+    ],
+    get: ["Customers answered at any hour", "Each customer sees only their own orders"],
+    tech: "WhatsApp Cloud API · DeepSeek · .NET · Paystack",
+    work: [["milo", "WhatsApp sales assistant"]],
   },
 ] as const;
 
@@ -104,7 +118,7 @@ const faqs: [string, string][] = [
   ],
   [
     "What is Upsert Labs?",
-    "Upsert Labs is a software studio in Lagos run by Abdulsamad Osunlana. It builds payment applications, web applications and backends. It runs its own products, Upsert, EventHome and Upsert Scout, and takes on client projects from research and design to a full build. Recent client builds are Jojo Express, a cargo platform live at jojosolutions.com, and the Inkz 'N' Paint online print store.",
+    "Upsert Labs is a software studio in Lagos run by Abdulsamad Osunlana. It builds web applications, backends and APIs, mobile apps and AI assistants. It runs its own products, Upsert, EventHome and Upsert Scout, and takes on client projects from research and design to a full build. Recent client builds are Jojo Express, a cargo platform live at jojosolutions.com, and the Inkz 'N' Paint online print store.",
   ],
   [
     "Do you work with clients outside Nigeria?",
@@ -190,8 +204,8 @@ export default function Services() {
           <h1>{title}</h1>
           <div>
             <p className="ci-lede">
-              Abdulsamad Osunlana runs Upsert Labs, a software studio in Lagos. We build payment applications, web
-              applications and backends for businesses in Nigeria and abroad. Bring us a full project, or hire Abdulsamad on his own as a
+              Abdulsamad Osunlana runs Upsert Labs, a software studio in Lagos. We build web applications, backends and
+              APIs, mobile apps and AI assistants for businesses in Nigeria and abroad. Bring us a full project, or hire Abdulsamad on his own as a
               freelance or contract engineer.
             </p>
             <div className="ci-acts">
@@ -204,55 +218,59 @@ export default function Services() {
         <section className="sv" aria-labelledby="what">
           <div className="sv-top">
             <h2 id="what">What we do</h2>
-            <p>Three services, each led by Abdulsamad from the first plan to launch.</p>
+            <p>Four services, each led by Abdulsamad from the first plan to launch.</p>
           </div>
           {services.map((s, n) => (
-            <details key={s.id} id={s.id} className="sv-row" open={n === 0}>
-              <summary>
-                <span className="sv-num">{String(n + 1).padStart(2, "0")}</span>
-                <h3 className="sv-name">{s.name}</h3>
-                <span className="sv-promise">{s.promise}</span>
-                <span className="sv-mark" aria-hidden="true" />
-              </summary>
-              <div className="sv-body">
-                <div className="sv-col">
-                  <h4>What we build</h4>
-                  <ul className="sv-list">
-                    {s.items.map((it, k) => (
-                      <li key={it} style={{ "--k": k } as CSSProperties}>{it}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="sv-col">
-                  <h4>What you get</h4>
-                  <ul className="sv-get">
-                    {s.get.map((g) => (
-                      <li key={g}>{g}</li>
-                    ))}
-                  </ul>
-                  <p className="sv-tech">
-                    <span>Built with</span> {s.tech}
+            <section key={s.id} id={s.id} className="sv-band" aria-labelledby={`${s.id}-h`}>
+              <div className="sv-in">
+                <div className="sv-side">
+                  <p className="sv-num">
+                    {String(n + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
                   </p>
+                  <h3 id={`${s.id}-h`} className="sv-name">{s.name}</h3>
+                  <span className="sv-bar" aria-hidden="true"><i /></span>
                 </div>
-                <div className="sv-col">
-                  <h4>Related work</h4>
-                  <ul className="sv-work">
-                    {s.work.map(([slug, kind]) => {
-                      const p = getProject(slug);
-                      if (!p) return null;
-                      return (
-                        <li key={slug}>
-                          <Link href={`/work/${slug}`}>
-                            <b>{p.name}</b>
-                            <span>{kind}</span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                <div className="sv-detail">
+                  <p className="sv-promise">{s.promise}</p>
+                  <div className="sv-grid">
+                    <div>
+                      <h4>What we build</h4>
+                      <ul className="sv-list">
+                        {s.items.map((it) => (
+                          <li key={it}>{it}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4>What you get</h4>
+                      <ul className="sv-get">
+                        {s.get.map((g) => (
+                          <li key={g}>{g}</li>
+                        ))}
+                      </ul>
+                      <p className="sv-tech">
+                        <span>Built with</span> {s.tech}
+                      </p>
+                      <h4 className="sv-h-work">Related work</h4>
+                      <ul className="sv-work">
+                        {s.work.map(([slug, kind]) => {
+                          const p = getProject(slug);
+                          if (!p) return null;
+                          return (
+                            <li key={slug}>
+                              <Link href={`/work/${slug}`}>
+                                <b>{p.name}</b>
+                                <span>{kind}</span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </details>
+            </section>
           ))}
         </section>
 
