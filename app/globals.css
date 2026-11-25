@@ -307,3 +307,27 @@ body::-webkit-scrollbar {
 @media (prefers-reduced-motion: reduce) {
   .wk-more { transition:none; }
 }
+
+/* Work and case study pages: home page top bar, story sheet, All work and Close */
+.hb { position:fixed; inset:0 0 auto 0; z-index:85; display:flex; align-items:center; gap:16px; height:64px; padding:0 clamp(16px,3.2vw,44px); padding-right:calc(clamp(16px,3.2vw,44px) + 230px); mix-blend-mode:difference; color:#fff; pointer-events:none; }
+.hb a { pointer-events:auto; }
+.hb-name { font-weight:600; letter-spacing:-.01em; font-size:17px; }
+.hb-mid { flex:1; text-align:center; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+.hb-main { padding-top:84px; }
+html:has(.hb) .top-actions { top:12px; right:clamp(16px,3.2vw,44px); mix-blend-mode:difference; color:#fff; gap:14px; }
+html:has(.hb) .theme-quick { background:transparent; border-color:rgba(255,255,255,.35); color:#fff; height:34px; }
+html:has(.hb) .theme-quick-btn[aria-checked="true"] { background:rgba(255,255,255,.2); }
+html:has(.hb) .menu-button { background:transparent; border:0; color:#fff; padding:0 4px; font-size:15px; }
+@media (max-width:860px) { .hb-mid { visibility:hidden; } }
+@media (max-width:520px) { .hb-last { display:none; } .hb { padding-right:calc(16px + 200px); } }
+.sh-close { position:fixed; top:max(env(safe-area-inset-top),12px); right:16px; z-index:96; display:inline-flex; align-items:center; height:40px; padding:0 18px; border-radius:999px; background:#0c0c0c; color:#f1ede6; font-size:14px; font-weight:500; cursor:pointer; border:0; box-shadow:0 0 0 1px rgba(255,255,255,.18), 0 6px 20px rgba(0,0,0,.18); }
+.sh-close:hover { background:#262626; }
+html:has(.sh-close) .top-actions { display:none; }
+button.sh-back { border:0; cursor:pointer; font:inherit; font-size:14px; font-weight:500; }
+.sh-back { z-index:96; }
+.sh-part h3 { margin:0; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#5f5b55; font-weight:600; }
+button.sh-next { border:0; text-align:left; cursor:pointer; font:inherit; }
+.ws { position:fixed; inset:0; z-index:95; background:#f1ede6; color:#0c0c0c; overflow-y:auto; overscroll-behavior:contain; clip-path:inset(100% 0 0 0); -webkit-overflow-scrolling:touch; }
+.ws[hidden] { display:none; }
+.ws-inner { min-height:100%; }
+html.ws-open, html.ws-open body { overflow:hidden; }

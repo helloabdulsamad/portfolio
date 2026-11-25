@@ -1,10 +1,10 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import PageShell, { Crumbs, tone } from "../components/PageShell";
-import { getProjects, plainName } from "@/lib/projects";
+import { getProjects, plainName, PARTS } from "@/lib/projects";
 import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
 import WorkStack from "./WorkStack";
+import WorkSheet from "./WorkSheet";
 
 const title = "Work and case studies";
 const description =
@@ -47,7 +47,7 @@ export default function Work() {
   );
 
   return (
-    <PageShell>
+    <PageShell bar>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(jsonLd) }} />
       <Crumbs items={[{ name: "Home", href: "/" }, { name: "Work" }]} />
       <header className="wk-head">
@@ -58,9 +58,9 @@ export default function Work() {
         </p>
       </header>
       <WorkStack>
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <li key={p.slug} className={p.shot ? "wk-card" : "wk-card no-shot"} style={tone(p)}>
-            <Link href={`/work/${p.slug}`} className="wk-link">
+            <a href={`/work/${p.slug}`} className="wk-link" data-open={i}>
               <span className="wk-meta">
                 {p.status} · {p.period}
               </span>
@@ -72,7 +72,7 @@ export default function Work() {
                 <span className="wk-tag">{p.tag}</span>
                 <span className="wk-more">Read the story</span>
               </span>
-            </Link>
+            </a>
             {p.shot && (
               <span className="wk-shot" aria-hidden="true">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -83,6 +83,7 @@ export default function Work() {
           </li>
         ))}
       </WorkStack>
+      <WorkSheet projects={projects} parts={PARTS} email={site.email} />
       <p className="wk-note">
         At Aspen Publishing I build core services that other teams and partners build on. That code is private, and I am happy to walk
         through it in an interview.

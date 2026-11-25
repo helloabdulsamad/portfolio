@@ -12,22 +12,33 @@ export default function PageShell({
   children,
   sheet = false,
   narrow = false,
+  bar = false,
 }: {
   children: React.ReactNode;
   sheet?: boolean;
   narrow?: boolean;
+  bar?: boolean;
 }) {
   const wrap = narrow ? "mx-auto w-full max-w-[600px] px-4" : "shell-wrap";
   return (
     <div className="min-h-dvh flex flex-col text-custom-gray-900 dark:text-app-text-dark">
-      {!sheet && (
+      {bar && (
+        // The home page top bar: name on the left, role in the middle, theme and menu on the right.
+        <div className="hb">
+          <a className="hb-name" href="/" aria-label="Abdulsamad Osunlana, home">
+            Abdulsamad<span className="hb-last"> Osunlana</span>
+          </a>
+          <span className="hb-mid">Senior Software Engineer · Founder, Upsert Labs</span>
+        </div>
+      )}
+      {!sheet && !bar && (
         <header className="w-full">
           <div className={`${wrap} pt-[max(env(safe-area-inset-top),16px)] md:pt-4`}>
             <Header />
           </div>
         </header>
       )}
-      <main className={sheet ? "flex-1 w-full" : `flex-1 ${wrap}`}>{children}</main>
+      <main className={sheet ? "flex-1 w-full" : `flex-1 ${wrap}${bar ? " hb-main" : ""}`}>{children}</main>
       <footer className="w-full pt-[120px] md:pt-20">
         <div className="mx-auto w-full max-w-[600px] px-4 pb-[max(env(safe-area-inset-bottom),16px)] md:pb-4">
           <div className="mb-[16px]">
