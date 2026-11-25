@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BandProgress from "@/components/BandProgress";
 
 import type { Metadata } from "next";
 import PageShell, { Crumbs } from "../components/PageShell";
@@ -215,6 +216,7 @@ export default function Services() {
           </div>
         </header>
 
+        <BandProgress />
         <section className="sv" aria-labelledby="what">
           <div className="sv-top">
             <h2 id="what">What we do</h2>

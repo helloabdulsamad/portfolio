@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BandProgress from "@/components/BandProgress";
  
 import Image from "next/image";
 import Header from "../components/header/Header";
@@ -18,67 +19,110 @@ const experience = [
   { company: "SolversBay", role: "Web Developer", period: "Feb 2019 to Jun 2020", body: "" },
 ];
 
+const links: [string, string, string, boolean][] = [
+  ["LinkedIn", "https://www.linkedin.com/in/helloabdulsamad/", "Profile", true],
+  ["GitHub", "https://github.com/helloabdulsamad", "Code", true],
+  ["Upwork", "https://www.upwork.com/freelancers/~01b37892b37a65770a", "Hire me", true],
+  ["See the work", "/work", "Case studies", false],
+  ["Services and FAQ", "/services", "What we build", false],
+];
+
+// One colour band per section, like the services page: the section name
+// stays pinned on the left while its content scrolls on the right.
+function Band({ id, n, title, children }: { id: string; n: number; title: string; children: React.ReactNode }) {
+  return (
+    <section id={id} className="sv-band" aria-labelledby={`${id}-h`}>
+      <div className="sv-in">
+        <div className="sv-side">
+          <p className="sv-num">{String(n).padStart(2, "0")} / 03</p>
+          <h2 id={`${id}-h`} className="sv-name">{title}</h2>
+          <span className="sv-bar" aria-hidden="true"><i /></span>
+        </div>
+        <div className="sv-detail">{children}</div>
+      </div>
+    </section>
+  );
+}
+
 export default function About() {
   return (
     <div className="min-h-dvh flex flex-col text-custom-gray-900 dark:text-app-text-dark">
       <header className="w-full">
-        <div className="mx-auto w-full max-w-[600px] px-4 pt-[max(env(safe-area-inset-top),16px)] md:pt-4">
+        <div className="shell-wrap pt-[max(env(safe-area-inset-top),16px)] md:pt-4">
           <Header />
         </div>
       </header>
 
-      <main className="flex-1 mx-auto w-full max-w-[600px] px-4">
-        <SplitTitle text="Systems that don't fall apart." className="font-display text-[34px] font-semibold leading-[1.05] tracking-[-0.01em] sm:text-[44px] pb-6" />
-
-        <Reveal>
-          <div className="about-photo">
-            <Image src="/headshot-600.webp" alt="Abdulsamad Osunlana in a black T-shirt, studio portrait" priority width={600} height={600} className="w-full h-auto" />
+      <main className="flex-1 shell-wrap">
+        <div className="ci ab">
+          <div className="ab-hero">
+            <div>
+              <SplitTitle text="Systems that don't fall apart." className="ab-title" />
+              <Reveal className="ab-intro">
+                <p>
+                  I&rsquo;m Abdulsamad, a Senior Software Engineer in Lagos, and I run Upsert Labs, a software studio. I studied Applied Geophysics (BSc,
+                  University of Ilorin, and MSc, University of Ibadan), and I&rsquo;ve built software since 2019.
+                </p>
+                <p>
+                  The work I like best has real money and real people behind it. A buyer who must never be charged twice. A shop that must keep
+                  selling when the network drops. A merchant whose store must stay up when another one falls over. I design for those failures
+                  first, and I prove the guarantees with tests.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal>
+              <div className="about-photo">
+                <Image src="/headshot-600.webp" alt="Abdulsamad Osunlana in a black T-shirt, studio portrait" priority width={600} height={600} className="w-full h-auto" />
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
 
-        <Reveal className="pt-8">
-          <p className="text-base leading-7 pb-4">
-            I&rsquo;m Abdulsamad, a Senior Software Engineer in Lagos. I studied Applied Geophysics (BSc, University of Ilorin, and MSc, University of Ibadan), and I&rsquo;ve built software since 2019.
-          </p>
-          <p className="text-base leading-7 pb-4">
-            The work I like best has real money and real people behind it. A buyer who must never be charged twice. A shop that must keep selling when the network drops. A merchant whose store must stay up when another one falls over. I design for those failures first, and I prove the guarantees with tests.
-          </p>
-        </Reveal>
+        <BandProgress />
+          <div className="sv">
+            <Band id="experience" n={1} title="Experience">
+              <ol className="ab-exp">
+                {experience.map((e) => (
+                  <li key={e.company + e.role}>
+                    <div className="ab-exp-top">
+                      <b>{e.company}</b>
+                      <span>{e.period}</span>
+                    </div>
+                    <p className="ab-role">{e.role}</p>
+                    {e.body && <p className="ab-body">{e.body}</p>}
+                  </li>
+                ))}
+              </ol>
+            </Band>
 
-        <Reveal className="pt-10">
-          <p className="section-kicker">Experience</p>
-          <ol className="exp-list">
-            {experience.map((e) => (
-              <li key={e.company + e.role} className="exp-row">
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-medium">{e.company}</span>
-                  <span className="text-sm text-custom-gray-500 dark:text-app-link-text-default shrink-0">{e.period}</span>
-                </div>
-                <p className="text-sm text-custom-gray-500 dark:text-app-link-text-default">{e.role}</p>
-                {e.body && <p className="text-sm leading-6 pt-1">{e.body}</p>}
-              </li>
-            ))}
-          </ol>
-        </Reveal>
+            <Band id="stack" n={2} title="Stack">
+              <p className="sv-promise ab-stack">
+                C# and .NET, ASP.NET Core, EF Core, PostgreSQL, Azure. TypeScript, Next.js and React. Paystack, webhooks and ledgers. Docker and
+                Coolify. Flutter for mobile. Tested with xUnit, Vitest and Playwright.
+              </p>
+            </Band>
 
-        <Reveal className="pt-10">
-          <p className="section-kicker">Stack</p>
-          <p className="text-base leading-7">
-            C# and .NET, ASP.NET Core, EF Core, PostgreSQL, Azure. TypeScript, Next.js and React. Paystack, webhooks and ledgers. Docker and Coolify. Flutter for mobile. Tested with xUnit, Vitest and Playwright.
-          </p>
-        </Reveal>
-
-        <Reveal className="pt-10">
-          <p className="section-kicker">Contact</p>
-          <p className="text-base leading-7">
-            <a className="link-underline" href="mailto:osunlanaabdulsamad@gmail.com">osunlanaabdulsamad@gmail.com</a> ·{" "}
-            <a className="link-underline" href="tel:+2348166814024">+234 816 681 4024</a> ·{" "}
-            <a className="link-underline" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·{" "}
-            <a className="link-underline" href="https://github.com/helloabdulsamad" target="_blank" rel="noopener noreferrer">GitHub</a> ·{" "}
-            <Link className="link-underline" href="/work">See the work</Link> ·{" "}
-            <Link className="link-underline" href="/services">Services and FAQ</Link>
-          </p>
-        </Reveal>
+            <Band id="contact" n={3} title="Contact">
+              <p className="sv-promise">Tell me what you are building.</p>
+              <p className="ab-mail">
+                <a href="mailto:osunlanaabdulsamad@gmail.com">osunlanaabdulsamad@gmail.com</a>
+              </p>
+              <p className="ab-call">
+                or call <a href="tel:+2348166814024">+234 816 681 4024</a>
+              </p>
+              <ul className="sv-work ab-links">
+                {links.map(([label, href, note, ext]) => (
+                  <li key={label}>
+                    {ext ? (
+                      <a href={href} target="_blank" rel="noopener noreferrer"><b>{label}</b><span>{note}</span></a>
+                    ) : (
+                      <Link href={href}><b>{label}</b><span>{note}</span></Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </Band>
+          </div>
+        </div>
       </main>
 
       <footer className="w-full pt-[120px] md:pt-20">
