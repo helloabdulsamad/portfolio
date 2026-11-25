@@ -131,7 +131,7 @@ window.PROJECTS = [
   "tag": "Every new job at the companies you want. The ones that fit, in your inbox every morning.",
   "ink": "#d19a6a",
   "paper": "#0f1420",
-  "shot": "img/work/job-digest.webp",
+  "shot": "img/work/upsert-scout.webp",
   "tech": [
    "C#",
    ".NET 10",
