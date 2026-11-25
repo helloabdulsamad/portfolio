@@ -185,7 +185,7 @@ window.PROJECTS = [
   "decisions": "WooCommerce lets the client's staff manage products and prices themselves after handover. Our own print editor saves a monthly licence fee. Partner printers print the job but never see the customer's contact details.",
   "outcome": "The store is built and tested, but not live yet. In the final test, the main customer journeys worked and every price we checked matched the price tables. The first full build also caught problems early, such as a price that did not update after a staff edit.",
   "tag": "Order printing online. Get it printed in your state.",
-  "ink": "#ff2f8a",
+  "ink": "#d6006b",
   "paper": "#ffffff",
   "shot": "img/work/inkznpaint.webp",
   "tech": [
