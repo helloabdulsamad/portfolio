@@ -8,7 +8,7 @@ import WorkSheet from "./WorkSheet";
 
 const title = "Work and case studies";
 const description =
-  "Case studies of software built by Abdulsamad Osunlana and Upsert Labs: Tredar point of sale, EventHome ticketing, Upsert online stores, Upsert Scout, Jojo Express cargo and more.";
+  "Case studies by Abdulsamad Osunlana and Upsert Labs: Tredar point of sale, EventHome ticketing, Upsert online stores, Jojo Express cargo and more.";
 
 export const metadata: Metadata = {
   title,

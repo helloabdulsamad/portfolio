@@ -8,7 +8,7 @@ export const site = {
   title: "Abdulsamad Osunlana · Senior Software Engineer",
   jobTitle: "Senior Software Engineer",
   description:
-    "Senior Software Engineer working with teams worldwide, and founder of Upsert Labs. I build payments, online stores, point of sale and web apps that businesses can trust with their money, in .NET, TypeScript and Next.js.",
+    "Senior Software Engineer and founder of Upsert Labs. I build payments, online stores, point of sale and web apps for businesses worldwide, in .NET and Next.js.",
   email: "osunlanaabdulsamad@gmail.com",
   phone: "+2348166814024",
   phoneDisplay: "+234 816 681 4024",
