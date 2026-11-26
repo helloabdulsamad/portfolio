@@ -247,6 +247,8 @@ html[data-theme="light"] .hero-photo { mix-blend-mode:multiply; }
 
 /* Technologies on each card and in the story sheet */
 .card-tech { margin:14px 0 0; font-size:14px; line-height:1.45; font-weight:500; opacity:.8; max-width:34ch; }
+/* Cards whose colour is too light for faded text show it at full strength. */
+.card.solid .card-top, .card.solid .card-tech, .sheet-head.solid .kicker, .sheet-head.solid .sheet-tech span { opacity:1; }
 .sheet-tech { margin:22px 0 0; font-size:16px; line-height:1.5; max-width:60ch; }
 .sheet-tech span { display:block; margin-bottom:6px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; opacity:.7; font-weight:500; }
 

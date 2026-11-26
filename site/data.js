@@ -187,6 +187,7 @@ window.PROJECTS = [
   "tag": "Order printing online. Get it printed in your state.",
   "ink": "#d6006b",
   "paper": "#ffffff",
+  "solid": true,
   "shot": "img/work/inkznpaint.webp",
   "tech": [
    "PHP",

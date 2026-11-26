@@ -23,6 +23,7 @@ const links: [string, string, string, boolean][] = [
   ["LinkedIn", "https://www.linkedin.com/in/helloabdulsamad/", "Profile", true],
   ["GitHub", "https://github.com/helloabdulsamad", "Code", true],
   ["Upwork", "https://www.upwork.com/freelancers/~01b37892b37a65770a", "Hire me", true],
+  ["Clutch", "https://clutch.co/profile/upsert-labs", "Upsert Labs", true],
   ["See the work", "/work", "Case studies", false],
   ["Services and FAQ", "/services", "What we build", false],
 ];

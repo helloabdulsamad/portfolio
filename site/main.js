@@ -13,7 +13,7 @@
   const stack = $("[data-stack]");
   if (!stack.children.length) P.forEach((p, i) => {
     const li = document.createElement("li");
-    li.className = p.shot ? "card" : "card no-shot";
+    li.className = (p.shot ? "card" : "card no-shot") + (p.solid ? " solid" : "");
     li.style.background = p.ink;
     li.style.color = p.paper;
     li.innerHTML = `
@@ -188,6 +188,7 @@
       const head = $("[data-sheet-head]");
       head.style.background = p.ink;
       head.style.color = p.paper;
+      head.classList.toggle("solid", !!p.solid);
       $("[data-sheet-kicker]").textContent = `${p.role} · ${p.status}`;
       $("[data-sheet-title]").textContent = p.name;
       $("[data-sheet-hook]").textContent = p.hook;
