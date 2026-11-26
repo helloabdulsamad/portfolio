@@ -100,7 +100,7 @@ export default function Menu() {
             ))}
           </ul>
         </nav>
-        <p className="menu-foot">Lagos, Nigeria · {site.email}</p>
+        <p className="menu-foot">Working worldwide · {site.email}</p>
       </div>
     </>
   );
