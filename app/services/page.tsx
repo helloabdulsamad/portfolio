@@ -7,9 +7,9 @@ import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
 import { getProject } from "@/lib/projects";
 
-const title = "Hire a senior software engineer in Lagos, Nigeria";
+const title = "Hire a senior software engineer, remote and worldwide";
 const description =
-  "Hire Abdulsamad Osunlana, a Senior Software Engineer in Lagos, or his studio Upsert Labs. Payments, APIs, web apps, online stores, point of sale and mobile apps in .NET, TypeScript and Next.js.";
+  "Hire Abdulsamad Osunlana, a Senior Software Engineer working with teams worldwide, or his studio Upsert Labs. Payments, APIs, web apps, online stores, point of sale and mobile apps in .NET, TypeScript and Next.js.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} · ${site.name}` },
@@ -111,7 +111,7 @@ const clients = [
 const faqs: [string, string][] = [
   [
     "Who is Abdulsamad Osunlana?",
-    "Abdulsamad Osunlana is a Senior Software Engineer in Lagos, Nigeria, and the founder of Upsert Labs. He has built software since 2019, works with Aspen Publishing, a US publisher, and built products such as Tredar, EventHome, Upsert and Upsert Scout.",
+    "Abdulsamad Osunlana is a Senior Software Engineer working with teams worldwide, and the founder of Upsert Labs. He has built software since 2019, works with Aspen Publishing, a US publisher, and built products such as Tredar, EventHome, Upsert and Upsert Scout.",
   ],
   [
     "Can I hire you as a freelance or contract developer?",
@@ -119,15 +119,15 @@ const faqs: [string, string][] = [
   ],
   [
     "What is Upsert Labs?",
-    "Upsert Labs is a software studio in Lagos run by Abdulsamad Osunlana. It builds web applications, backends and APIs, mobile apps and AI assistants. It runs its own products, Upsert, EventHome and Upsert Scout, and takes on client projects from research and design to a full build. Recent client builds are Jojo Express, a cargo platform live at jojosolutions.com, and the Inkz 'N' Paint online print store.",
+    "Upsert Labs is a software studio run by Abdulsamad Osunlana. It builds web applications, backends and APIs, mobile apps and AI assistants. It runs its own products, Upsert, EventHome and Upsert Scout, and takes on client projects from research and design to a full build. Recent client builds are Jojo Express, a cargo platform live at jojosolutions.com, and the Inkz 'N' Paint online print store.",
   ],
   [
-    "Do you work with clients outside Nigeria?",
+    "Do you work with clients in other countries?",
     "Yes. I work remotely with Aspen Publishing in the United States, and I helped Smarttasker, an Australian company, launch its app in Indonesia. Earlier I worked remotely for AIpidata in the United Kingdom.",
   ],
   [
     "What time zone do you work in?",
-    "I work from Lagos on West Africa Time, which is UTC+1. That covers the full working day in the UK and most of Europe, and the morning on the US East Coast.",
+    "I work on UTC+1. That covers the full working day in the UK and most of Europe, and the morning on the US East Coast.",
   ],
   [
     "Which technologies do you use?",
@@ -205,8 +205,8 @@ export default function Services() {
           <h1>{title}</h1>
           <div>
             <p className="ci-lede">
-              Abdulsamad Osunlana runs Upsert Labs, a software studio in Lagos. We build web applications, backends and APIs, mobile apps and AI
-              assistants for businesses in Nigeria and abroad.
+              Abdulsamad Osunlana runs Upsert Labs, a software studio. We build web applications, backends and APIs, mobile apps and AI
+              assistants for businesses worldwide.
             </p>
           </div>
         </header>

@@ -40,7 +40,7 @@ export const studioNode = {
   foundingDate: site.studio.foundingDate,
   founder: { "@id": ids.person },
   address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
-  areaServed: [{ "@type": "Country", name: "Nigeria" }, "Worldwide"],
+  areaServed: "Worldwide",
   knowsAbout: site.knowsAbout,
 };
 

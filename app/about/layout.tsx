@@ -4,7 +4,7 @@ import { breadcrumb, graph, ldJson } from "@/lib/schema";
 
 const title = "About Abdulsamad Osunlana";
 const description =
-  "Abdulsamad Osunlana is a Senior Software Engineer in Lagos, Nigeria, building software since 2019. He works with Aspen Publishing and founded Upsert Labs, which builds EventHome, Upsert, Upsert Scout and Tredar.";
+  "Abdulsamad Osunlana is a Senior Software Engineer working with teams worldwide, building software since 2019. He works with Aspen Publishing and founded Upsert Labs, which builds EventHome, Upsert, Upsert Scout and Tredar.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} · Senior Software Engineer` },

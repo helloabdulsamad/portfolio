@@ -60,7 +60,7 @@ export default function About() {
               <SplitTitle text="Systems that don't fall apart." className="ab-title" />
               <Reveal className="ab-intro">
                 <p>
-                  I&rsquo;m Abdulsamad, a Senior Software Engineer in Lagos, and I run Upsert Labs, a software studio. I studied Applied Geophysics (BSc,
+                  I&rsquo;m Abdulsamad, a Senior Software Engineer working with teams worldwide, and I run Upsert Labs, a software studio. I studied Applied Geophysics (BSc,
                   University of Ilorin, and MSc, University of Ibadan), and I&rsquo;ve built software since 2019.
                 </p>
                 <p>

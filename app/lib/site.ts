@@ -5,10 +5,10 @@ export const site = {
   name: "Abdulsamad Osunlana",
   shortName: "helloabdulsamad",
   url: "https://helloabdulsamad.com", // no trailing slash
-  title: "Abdulsamad Osunlana · Senior Software Engineer in Lagos, Nigeria",
+  title: "Abdulsamad Osunlana · Senior Software Engineer",
   jobTitle: "Senior Software Engineer",
   description:
-    "Senior Software Engineer in Lagos, Nigeria, and founder of Upsert Labs. I build payments, online stores, point of sale and web apps that businesses can trust with their money, in .NET, TypeScript and Next.js.",
+    "Senior Software Engineer working with teams worldwide, and founder of Upsert Labs. I build payments, online stores, point of sale and web apps that businesses can trust with their money, in .NET, TypeScript and Next.js.",
   email: "osunlanaabdulsamad@gmail.com",
   phone: "+2348166814024",
   phoneDisplay: "+234 816 681 4024",
@@ -47,7 +47,7 @@ export const site = {
     name: "Upsert Labs",
     legalName: "Upsert Labs Limited",
     description:
-      "Upsert Labs is a software studio in Lagos, Nigeria, founded by Abdulsamad Osunlana. It builds its own products, Upsert, EventHome and Upsert Scout, and takes client projects from research and design to a full build, then runs them after launch.",
+      "Upsert Labs is a software studio, founded by Abdulsamad Osunlana. It builds its own products, Upsert, EventHome and Upsert Scout, and takes client projects from research and design to a full build, then runs them after launch.",
     foundingDate: "2026-06",
   },
 } as const;
