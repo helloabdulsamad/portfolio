@@ -17,7 +17,7 @@
     li.style.background = p.ink;
     li.style.color = p.paper;
     li.innerHTML = `
-      <a class="card-btn" href="/work/${p.slug}" data-open="${i}" aria-label="Read the ${p.name} story">
+      <a class="card-btn" href="/work/${p.slug}" data-open="${i}">
         <span class="card-top"><span>${p.status} · ${p.period}</span></span>
         <span>
           <h3 class="card-name">${p.name}</h3>

@@ -7,9 +7,9 @@ import { site, ids } from "@/lib/site";
 import { breadcrumb, graph, ldJson } from "@/lib/schema";
 import { getProject } from "@/lib/projects";
 
-const title = "Hire a senior software engineer, remote and worldwide";
+const title = "Hire a remote senior software engineer";
 const description =
-  "Hire Abdulsamad Osunlana, a Senior Software Engineer working with teams worldwide, or his studio Upsert Labs. Payments, APIs, web apps, online stores, point of sale and mobile apps in .NET, TypeScript and Next.js.";
+  "Hire Abdulsamad Osunlana or his studio Upsert Labs for web apps, APIs, payments, mobile apps and AI assistants in .NET, TypeScript and Next.js.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} · ${site.name}` },

@@ -22,7 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return {};
   const title = `${plainName(p)} case study`;
   const url = `/work/${p.slug}`;
-  const description = `${p.oneLine} ${p.status}, ${p.period}. A case study by ${site.name}.`;
+  const full = `${p.oneLine} ${p.status}, ${p.period}. A case study by ${site.name}.`;
+  // Search results cut descriptions at about 160 characters.
+  const description = full.length <= 160 ? full : `${p.oneLine} A case study by ${site.name}.`;
   const images = p.shot ? [{ url: `/${p.shot}`, width: 1600, height: 1000, alt: `${plainName(p)} screens` }] : undefined;
   return {
     title,
