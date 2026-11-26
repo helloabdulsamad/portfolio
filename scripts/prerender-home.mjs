@@ -28,7 +28,7 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 // Same markup as the cards main.js builds.
 const cards = projects
   .map(
-    (p, i) => `<li class="${p.shot ? "card" : "card no-shot"}" style="background:${esc(p.ink)};color:${esc(p.paper)}">
+    (p, i) => `<li class="${p.shot ? "card" : "card no-shot"}${p.solid ? " solid" : ""}" style="background:${esc(p.ink)};color:${esc(p.paper)}">
       <a class="card-btn" href="/work/${esc(p.slug)}" data-open="${i}">
         <span class="card-top"><span>${esc(p.status)} · ${esc(p.period)}</span></span>
         <span>

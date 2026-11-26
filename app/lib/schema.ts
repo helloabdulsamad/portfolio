@@ -41,6 +41,8 @@ export const studioNode = {
   founder: { "@id": ids.person },
   address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
   areaServed: "Worldwide",
+  // Directory listings for the studio. Add GoodFirms once its public link is confirmed.
+  sameAs: ["https://clutch.co/profile/upsert-labs"],
   knowsAbout: site.knowsAbout,
 };
 
